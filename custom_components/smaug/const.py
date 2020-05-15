@@ -1,4 +1,4 @@
 DEVICE_NAME = 'SMAUG'
-PASSCODE = 'testing'
+PASSCODE = '31whothehelldesignedthis!?'
 AXOLOTL_URL = 'http://192.168.111.181:7896/axolotl'
 AXOLOTL_SECRET = '9PaxiZJkSGMWL0XwZAQcwlA4mee4BECLjT8r3nzaCCQ='
