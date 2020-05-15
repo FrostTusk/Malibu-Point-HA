@@ -1,30 +1,22 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
-
 # Text to speech
 tts:
   - platform: google_translate
-sensor:
-  - platform: example_sensor
-switch:
-  - platform: axolotl
 
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
-# http:
-#   use_x_forwarded_for: true
-#   trusted_proxies:
-#     - 127.0.0.1
-#     - 192.168.1.101
-#     - 81.82.35.25
-#   ip_ban_enabled: false
 
+sensor:
+  - platform: example_sensor
+alarm_control_panel:
+  - platform: smaug
+
+frontend:
+  themes: !include google-home.yaml
 
 # Example configuration.yaml entry
 google_assistant:
@@ -32,5 +24,6 @@ google_assistant:
   service_account: !include SERVICE_ACCOUNT.JSON
   report_state: true
   exposed_domains:
+    # - switch
     - switch
-    - light
+  #secure_devices_pin: "0"

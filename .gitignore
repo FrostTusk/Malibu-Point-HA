@@ -1,0 +1,7 @@
+smaug/const.py
+secrets.yaml
+home-assistant_v2.db
+home-assistant.log
+.HA_VERSION
+.storage
+.cloud
