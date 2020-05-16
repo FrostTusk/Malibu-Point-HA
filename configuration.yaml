@@ -1,19 +1,39 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# Text to speech
-tts:
-  - platform: google_translate
-
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
-sensor:
-  - platform: example_sensor
+# ---
+# Devices
+# ---
+
+# sensor:
+#   - platform: example_sensor
 alarm_control_panel:
   - platform: smaug
+camera:
+  - platform: mjpeg
+    name: axolotl camera
+    mjpeg_url: http://192.168.111.182/mjpeg.cgi
+    username: !secret axolotl_username
+    password: !secret axolotl_password
+    authentication: basic
+tuya:
+  username: !secret smart_life_username
+  password: !secret smart_life_password
+  country_code: '32'
+  platform: 'smart_life'
+
+# ---
+# Other
+# ---
+
+# Text to speech
+tts:
+  - platform: google_translate
 
 frontend:
   themes: !include google-home.yaml
@@ -24,4 +44,6 @@ google_assistant:
   report_state: true
   exposed_domains:
     - alarm_control_panel
+    - switch
+    - camera
   secure_devices_pin: "0"

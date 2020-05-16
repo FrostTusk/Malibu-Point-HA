@@ -53,14 +53,14 @@ class SMAUG(alarm.AlarmControlPanel):
         if code != PASSCODE:
             return
         self._state = STATE_ALARM_DISARMED
-        requests.post(AXOLOTL_URL, json={'arm': 'false', 'secret': AXOLOTL_SECRET})
+        requests.post(AXOLOTL_URL, json={'arm': False, 'secret': AXOLOTL_SECRET})
 
     def alarm_arm_away(self, code):
         """Send arm away command."""
         if code != PASSCODE:
             return
         self._state = STATE_ALARM_ARMED_AWAY
-        requests.post(AXOLOTL_URL, json={'arm': 'true', 'secret': AXOLOTL_SECRET})
+        requests.post(AXOLOTL_URL, json={'arm': True, 'secret': AXOLOTL_SECRET})
 
     @property
     def supported_features(self)-> int:
