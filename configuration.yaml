@@ -12,6 +12,12 @@ scene: !include scenes.yaml
 
 # sensor:
 #   - platform: example_sensor
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_free
 alarm_control_panel:
   - platform: smaug
 camera:
