@@ -48,14 +48,14 @@ class SMAUG(alarm.AlarmControlPanel):
         """Whether the code is required for arm actions."""
         return False
 
-    def alarm_disarm(self, code):
+    def alarm_disarm(self, code=None):
         """Send disarm command."""
         if code != PASSCODE:
             return
         self._state = STATE_ALARM_DISARMED
         requests.post(AXOLOTL_URL, json={'arm': False, 'secret': AXOLOTL_SECRET})
 
-    def alarm_arm_away(self, code):
+    def alarm_arm_away(self, code=None):
         """Send arm away command."""
         if code != PASSCODE:
             return
