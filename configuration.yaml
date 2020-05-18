@@ -42,7 +42,7 @@ tts:
   - platform: google_translate
 
 frontend:
-  themes: !include google-home.yaml
+  themes: !include_dir_named themes/
 
 google_assistant:
   project_id: home-assistant-140f3
