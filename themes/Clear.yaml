@@ -1,5 +1,5 @@
 # Background image
-# lovelace-background: 'center / cover no-repeat url("/config/themes/background_light.jpg") fixed'
+lovelace-background: 'center / cover no-repeat url("/local/clear-theme-background.jpg") fixed'
 
 # Colors
 text-color: '#636B75'                                                           # Grey text
