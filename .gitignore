@@ -1,7 +1,13 @@
-smaug/const.py
-secrets.yaml
+# Home Assistant data
 home-assistant_v2.db
 home-assistant.log
 .HA_VERSION
-.storage
-.cloud
+.storage/
+.cloud/
+
+# Configuration
+secrets.yaml
+
+# Custom Components
+smaug/const.py
+__pycache__/
