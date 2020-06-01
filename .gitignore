@@ -4,6 +4,8 @@ home-assistant.log
 .HA_VERSION
 .storage/
 .cloud/
+deps/
+tts/
 
 # Configuration
 secrets.yaml
