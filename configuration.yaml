@@ -22,10 +22,10 @@ alarm_control_panel:
   - platform: smaug
 camera:
   - platform: mjpeg
-    name: axolotl camera
+    name: staurois camera
     mjpeg_url: http://192.168.111.182/mjpeg.cgi
-    username: !secret axolotl_username
-    password: !secret axolotl_password
+    username: !secret staurois_username
+    password: !secret staurois_password
     authentication: basic
 tuya:
   username: !secret smart_life_username

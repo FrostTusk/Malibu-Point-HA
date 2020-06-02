@@ -1,5 +1,5 @@
 # Home Assistant data
-home-assistant_v2.db
+home-assistant_v2.db*
 home-assistant.log
 .HA_VERSION
 .storage/

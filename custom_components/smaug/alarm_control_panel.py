@@ -10,8 +10,8 @@ from homeassistant.components.alarm_control_panel.const import (
 from .const import (
     DEVICE_NAME,
     PASSCODE,
-    AXOLOTL_URL,
-    AXOLOTL_SECRET
+    STAUROIS_URL,
+    STAUROIS_SECRET
 )
 
 import requests
@@ -53,14 +53,14 @@ class SMAUG(alarm.AlarmControlPanel):
         if code != PASSCODE:
             return
         self._state = STATE_ALARM_DISARMED
-        requests.post(AXOLOTL_URL, json={'arm': False, 'secret': AXOLOTL_SECRET})
+        requests.post(STAUROIS_URL, json={'arm': False, 'secret': STAUROIS_SECRET})
 
     def alarm_arm_away(self, code=None):
         """Send arm away command."""
         if code != PASSCODE:
             return
         self._state = STATE_ALARM_ARMED_AWAY
-        requests.post(AXOLOTL_URL, json={'arm': True, 'secret': AXOLOTL_SECRET})
+        requests.post(STAUROIS_URL, json={'arm': True, 'secret': STAUROIS_SECRET})
 
     @property
     def supported_features(self)-> int:
