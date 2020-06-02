@@ -11,5 +11,5 @@ tts/
 secrets.yaml
 
 # Custom Components
-#smaug/const.py
+smaug/const.py
 __pycache__/
