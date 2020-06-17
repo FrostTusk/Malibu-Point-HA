@@ -20,7 +20,7 @@ sensor:
       - type: memory_free
       - type: network_in
         arg: enp9s0
-      - type: throughput_network_in 
+      - type: throughput_network_in
         arg: enp9s0
 alarm_control_panel:
   - platform: smaug
@@ -36,7 +36,15 @@ tuya:
   password: !secret smart_life_password
   country_code: '32'
   platform: 'smart_life'
-
+glances:
+  - host: '192.168.222.221'
+    username: !secret glances_ailurus_username
+    password: !secret glances_ailurus_password
+    name: 'glances-ailurus'
+  - host: '192.168.222.164'
+    username: !secret glances_panthera_username
+    password: !secret glances_panthera_password
+    name: 'glances-panthera'
 # ---
 # Other
 # ---
