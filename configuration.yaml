@@ -40,11 +40,11 @@ glances:
   - host: '192.168.222.221'
     username: !secret glances_ailurus_username
     password: !secret glances_ailurus_password
-    name: 'glances-ailurus'
+    name: '(glances) ailurus'
   - host: '192.168.222.164'
     username: !secret glances_panthera_username
     password: !secret glances_panthera_password
-    name: 'glances-panthera'
+    name: '(glances) panthera'
 # ---
 # Other
 # ---
