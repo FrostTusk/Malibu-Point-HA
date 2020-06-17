@@ -29,17 +29,17 @@ sensor:
       - type: load_1m
       - type: load_5m
       - type: load_15m
-      - type: network_in
+      - type: throughput_network_in
         arg: enp9s0
-      - type: network_out
+      - type: throughput_network_out
         arg: enp9s0
       - type: ipv4_address
         arg: enp9s0
       - type: ipv6_address
         arg: enp9s0
-      - type: network_in
+      - type: throughput_network_in
         arg: wlp5s0b1
-      - type: network_out
+      - type: throughput_network_out
         arg: wlp5s0b1
       - type: ipv4_address
         arg: wlp5s0b1
