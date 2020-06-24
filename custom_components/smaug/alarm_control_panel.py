@@ -1,17 +1,17 @@
 import homeassistant.components.alarm_control_panel as alarm
 from homeassistant.const import (
-    STATE_ALARM_ARMED_AWAY,
+    STATE_ALARM_ARMED_HOME,
     STATE_ALARM_DISARMED
 )
 from homeassistant.components.alarm_control_panel.const import (
-    SUPPORT_ALARM_ARM_AWAY
+    SUPPORT_ALARM_ARM_HOME
 )
 
 from .const import (
     DEVICE_NAME,
     PASSCODE,
-    STAUROIS_URL,
-    STAUROIS_SECRET
+    AMNIRANA_URL,
+    AMNIRANA_SECRET
 )
 
 import requests
@@ -37,10 +37,10 @@ class SMAUG(alarm.AlarmControlPanel):
     @property
     def code_format(self):
         """Return one or more digits/characters."""
-        # if self._code is None:
-        #     return None
-        # if isinstance(self._code, str) and re.search("^\\d+$", self._code):
-        #     return alarm.FORMAT_NUMBER
+        if PASSCODE is None:
+            return None
+        if isinstance(PASSCODE, str) and PASSCODE.isdigit():
+            return alarm.FORMAT_NUMBER
         return alarm.FORMAT_TEXT
 
     @property
@@ -53,16 +53,14 @@ class SMAUG(alarm.AlarmControlPanel):
         if code != PASSCODE:
             return
         self._state = STATE_ALARM_DISARMED
-        requests.post(STAUROIS_URL, json={'arm': False, 'secret': STAUROIS_SECRET})
+        requests.post(AMNIRANA_URL, json={'arm': False, 'secret': AMNIRANA_SECRET})
 
-    def alarm_arm_away(self, code=None):
+    def alarm_arm_home(self, code=None):
         """Send arm away command."""
-        if code != PASSCODE:
-            return
-        self._state = STATE_ALARM_ARMED_AWAY
-        requests.post(STAUROIS_URL, json={'arm': True, 'secret': STAUROIS_SECRET})
+        self._state = STATE_ALARM_ARMED_HOME
+        requests.post(AMNIRANA_URL, json={'arm': True, 'secret': AMNIRANA_SECRET})
 
     @property
     def supported_features(self)-> int:
         """Return the list of supported features."""
-        return SUPPORT_ALARM_ARM_AWAY
+        return SUPPORT_ALARM_ARM_HOME
