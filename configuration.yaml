@@ -64,14 +64,14 @@ tuya:
   country_code: '32'
   platform: 'smart_life'
 glances:
-  - host: '192.168.222.221'
+  - host: '192.168.111.181'
     username: !secret glances_ailurus_username
     password: !secret glances_ailurus_password
-    name: '(glances) ailurus'
+    name: 'ailurus'
   - host: '192.168.222.164'
     username: !secret glances_panthera_username
     password: !secret glances_panthera_password
-    name: '(glances) panthera'
+    name: 'panthera'
 # ---
 # Other
 # ---
