@@ -72,6 +72,10 @@ glances:
     username: !secret glances_panthera_username
     password: !secret glances_panthera_password
     name: 'panthera'
+  - port: 61308
+    username: !secret glances_ursus_username
+    password: !secret glances_ursus_password
+    name: 'ursus'
 # ---
 # Other
 # ---
