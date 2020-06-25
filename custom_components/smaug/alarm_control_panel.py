@@ -18,11 +18,12 @@ import requests
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the sensor platform."""
-    add_entities([SMAUG()])
+    add_entities([SMAUG(hass)])
 
 class SMAUG(alarm.AlarmControlPanel):
-    def __init__(self):
+    def __init__(self, hass):
         self._state = STATE_ALARM_DISARMED
+        self._hass = hass
 
     @property
     def name(self):
@@ -50,7 +51,8 @@ class SMAUG(alarm.AlarmControlPanel):
 
     def alarm_disarm(self, code=None):
         """Send disarm command."""
-        if code != PASSCODE:
+        requests.post("http://192.168.222.221:7896/echo", json={'hass_debug': str(self._hass.states.get("device_tracker.falco").state)})
+        if code != PASSCODE && self._hass.states.get("device_tracker.falco").state != "Home":
             return
         self._state = STATE_ALARM_DISARMED
         requests.post(AMNIRANA_URL, json={'arm': False, 'secret': AMNIRANA_SECRET})
