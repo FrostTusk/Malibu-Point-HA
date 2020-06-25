@@ -10,8 +10,6 @@ scene: !include scenes.yaml
 # Devices
 # ---
 
-# sensor:
-#   - platform: example_sensor
 sensor:
   - platform: systemmonitor
     resources:
@@ -48,12 +46,15 @@ sensor:
         arg: wlp5s0b1
       - type: processor_use
       - type: last_boot
-
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'time_utc'
+      - 'date'
 alarm_control_panel:
   - platform: smaug
     amnirana_username: !secret amnirana_username
     amnirana_password: !secret amnirana_password
-
 camera:
   - platform: mjpeg
     name: amnirana camera
@@ -61,6 +62,7 @@ camera:
     username: !secret amnirana_username
     password: !secret amnirana_password
     authentication: basic
+
 tuya:
   username: !secret smart_life_username
   password: !secret smart_life_password
@@ -79,6 +81,7 @@ glances:
     username: !secret glances_ursus_username
     password: !secret glances_ursus_password
     name: 'ursus'
+
 # ---
 # Other
 # ---
