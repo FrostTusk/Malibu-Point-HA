@@ -1,10 +1,10 @@
 import homeassistant.components.alarm_control_panel as alarm
 from homeassistant.const import (
-    STATE_ALARM_ARMED_HOME,
+    STATE_ALARM_ARMED_AWAY,
     STATE_ALARM_DISARMED
 )
 from homeassistant.components.alarm_control_panel.const import (
-    SUPPORT_ALARM_ARM_HOME
+    SUPPORT_ALARM_ARM_AWAY
 )
 
 from .const import (
@@ -59,12 +59,12 @@ class SMAUG(alarm.AlarmControlPanel):
         self._state = STATE_ALARM_DISARMED
         requests.get(AMNIRANA_DISARM_URL, auth=HTTPBasicAuth(self._AMNIRANA_USERNAME, self._AMNIRANA_PASSWORD))
 
-    def alarm_arm_home(self, code=None):
+    def alarm_arm_away(self, code=None):
         """Send arm away command."""
-        self._state = STATE_ALARM_ARMED_HOME
+        self._state = STATE_ALARM_ARMED_AWAY
         requests.get(AMNIRANA_ARM_URL, auth=HTTPBasicAuth(self._AMNIRANA_USERNAME, self._AMNIRANA_PASSWORD))
 
     @property
     def supported_features(self)-> int:
         """Return the list of supported features."""
-        return SUPPORT_ALARM_ARM_HOME
+        return SUPPORT_ALARM_ARM_AWAY
