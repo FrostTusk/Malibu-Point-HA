@@ -51,12 +51,15 @@ sensor:
 
 alarm_control_panel:
   - platform: smaug
+    amnirana_username: !secret amnirana_username
+    amnirana_password: !secret amnirana_password
+
 camera:
   - platform: mjpeg
-    name: staurois camera
+    name: amnirana camera
     mjpeg_url: http://192.168.111.182/mjpeg.cgi
-    username: !secret staurois_username
-    password: !secret staurois_password
+    username: !secret amnirana_username
+    password: !secret amnirana_password
     authentication: basic
 tuya:
   username: !secret smart_life_username

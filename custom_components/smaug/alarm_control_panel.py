@@ -10,20 +10,23 @@ from homeassistant.components.alarm_control_panel.const import (
 from .const import (
     DEVICE_NAME,
     PASSCODE,
-    AMNIRANA_URL,
-    AMNIRANA_SECRET
+    AMNIRANA_ARM_URL,
+    AMNIRANA_DISARM_URL
 )
 
 import requests
+from requests.auth import HTTPBasicAuth
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the sensor platform."""
-    add_entities([SMAUG(hass)])
+    add_entities([SMAUG(hass, config)])
 
 class SMAUG(alarm.AlarmControlPanel):
-    def __init__(self, hass):
+    def __init__(self, hass, config):
         self._state = STATE_ALARM_DISARMED
         self._hass = hass
+        self._AMNIRANA_USERNAME = config["amnirana_username"]
+        self._AMNIRANA_PASSWORD = config["amnirana_password"]
 
     @property
     def name(self):
@@ -51,16 +54,15 @@ class SMAUG(alarm.AlarmControlPanel):
 
     def alarm_disarm(self, code=None):
         """Send disarm command."""
-        requests.post("http://192.168.222.221:7896/echo", json={'hass_debug': str(self._hass.states.get("device_tracker.falco").state)})
         if code != PASSCODE and self._hass.states.get("device_tracker.falco").state != "home":
             return
         self._state = STATE_ALARM_DISARMED
-        requests.post(AMNIRANA_URL, json={'arm': False, 'secret': AMNIRANA_SECRET})
+        requests.get(AMNIRANA_DISARM_URL, auth=HTTPBasicAuth(self._AMNIRANA_USERNAME, self._AMNIRANA_PASSWORD))
 
     def alarm_arm_home(self, code=None):
         """Send arm away command."""
         self._state = STATE_ALARM_ARMED_HOME
-        requests.post(AMNIRANA_URL, json={'arm': True, 'secret': AMNIRANA_SECRET})
+        requests.get(AMNIRANA_ARM_URL, auth=HTTPBasicAuth(self._AMNIRANA_USERNAME, self._AMNIRANA_PASSWORD))
 
     @property
     def supported_features(self)-> int:
