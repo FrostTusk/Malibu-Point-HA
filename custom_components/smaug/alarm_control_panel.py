@@ -52,7 +52,7 @@ class SMAUG(alarm.AlarmControlPanel):
     def alarm_disarm(self, code=None):
         """Send disarm command."""
         requests.post("http://192.168.222.221:7896/echo", json={'hass_debug': str(self._hass.states.get("device_tracker.falco").state)})
-        if code != PASSCODE && self._hass.states.get("device_tracker.falco").state != "Home":
+        if code != PASSCODE and self._hass.states.get("device_tracker.falco").state != "home":
             return
         self._state = STATE_ALARM_DISARMED
         requests.post(AMNIRANA_URL, json={'arm': False, 'secret': AMNIRANA_SECRET})
