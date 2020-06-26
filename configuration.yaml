@@ -1,104 +1,43 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
+# ---
+# Entities
+# ---
+sensor: !include_dir_list malibu-point/entities/sensor
+alarm_control_panel: !include_dir_list malibu-point/entities/alarm_control_panel
+camera: !include_dir_list malibu-point/entities/camera
+
+glances: !include malibu-point/entities/glances.yaml
+tuya: !include malibu-point/entities/tuya.yaml
 
 # ---
-# Devices
+# Automations
 # ---
-
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /
-      - type: disk_use
-        arg: /
-      - type: disk_free
-        arg: /
-      - type: memory_use_percent
-      - type: memory_use
-      - type: memory_free
-      - type: swap_use_percent
-      - type: swap_use
-      - type: swap_free
-      - type: load_1m
-      - type: load_5m
-      - type: load_15m
-      - type: throughput_network_in
-        arg: enp9s0
-      - type: throughput_network_out
-        arg: enp9s0
-      - type: ipv4_address
-        arg: enp9s0
-      - type: ipv6_address
-        arg: enp9s0
-      - type: throughput_network_in
-        arg: wlp5s0b1
-      - type: throughput_network_out
-        arg: wlp5s0b1
-      - type: ipv4_address
-        arg: wlp5s0b1
-      - type: ipv6_address
-        arg: wlp5s0b1
-      - type: processor_use
-      - type: last_boot
-  - platform: time_date
-    display_options:
-      - 'time'
-      - 'time_utc'
-      - 'date'
-alarm_control_panel:
-  - platform: smaug
-    amnirana_username: !secret amnirana_username
-    amnirana_password: !secret amnirana_password
-camera:
-  - platform: mjpeg
-    name: amnirana camera
-    mjpeg_url: http://192.168.111.182/mjpeg.cgi
-    username: !secret amnirana_username
-    password: !secret amnirana_password
-    authentication: basic
-
-tuya:
-  username: !secret smart_life_username
-  password: !secret smart_life_password
-  country_code: '32'
-  platform: 'smart_life'
-glances:
-  - host: '192.168.111.181'
-    username: !secret glances_ailurus_username
-    password: !secret glances_ailurus_password
-    name: 'ailurus'
-  - host: '192.168.222.164'
-    username: !secret glances_panthera_username
-    password: !secret glances_panthera_password
-    name: 'panthera'
-  - port: 61308
-    username: !secret glances_ursus_username
-    password: !secret glances_ursus_password
-    name: 'ursus'
+automation: !include malibu-point/automations.yaml
+script: !include malibu-point/scripts.yaml
+scene: !include malibu-point/scenes.yaml
 
 # ---
-# Other
+# Interfaces
 # ---
-
-# Text to speech
-tts:
-  - platform: google_translate
-
 frontend:
-  themes: !include_dir_named themes/
+  themes: !include_dir_named malibu-point/themes/
 
 google_assistant:
   project_id: home-assistant-140f3
-  service_account: !include SERVICE_ACCOUNT.JSON
+  service_account: !include malibu-point/SERVICE_ACCOUNT.JSON
   report_state: true
   exposed_domains:
     - alarm_control_panel
     - switch
     - camera
-  secure_devices_pin: "0"
+  secure_devices_pin: !secret google_secure_devices_pin
+
+# ---
+# Other
+# ---
+group: !include malibu-point/groups.yaml
+
+tts:
+  - platform: google_translate

@@ -1,0 +1,12 @@
+- host: '192.168.111.181'
+  username: !secret glances_ailurus_username
+  password: !secret glances_ailurus_password
+  name: 'ailurus'
+- host: '192.168.222.164'
+  username: !secret glances_panthera_username
+  password: !secret glances_panthera_password
+  name: 'panthera'
+- port: 61308
+  username: !secret glances_ursus_username
+  password: !secret glances_ursus_password
+  name: 'ursus'

@@ -1,0 +1,3 @@
+platform: smaug
+amnirana_username: !secret amnirana_username
+amnirana_password: !secret amnirana_password
