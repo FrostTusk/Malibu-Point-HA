@@ -8,6 +8,53 @@ sensor: !include_dir_list malibu-point/entities/sensor
 alarm_control_panel: !include_dir_list malibu-point/entities/alarm_control_panel
 camera: !include_dir_list malibu-point/entities/camera
 
+input_boolean:
+  taricha:
+    name: taricha tv
+input_select:
+  taricha:
+    name: taricha source
+    options:
+      - 1
+      - 2
+      - 3
+    initial: 1
+
+rest_command:
+  turn_on_taricha:
+    url: http://192.168.111.181:7896/taricha/on
+    method: POST
+  turn_off_taricha:
+    url: http://192.168.111.181:7896/taricha/off
+    method: POST
+  select_source_taricha:
+    url: http://192.168.111.181:7896/taricha/source
+    method: POST
+    payload: '{"new_source": {{ new_source }}}'
+
+media_player:
+  - platform: universal
+    name: taricha
+    children:
+      - media_player.hyla
+    commands:
+      turn_on:
+        service: rest_command.turn_on_taricha
+      turn_off:
+        service: rest_command.turn_off_taricha
+      select_source:
+        service: rest_command.select_source_taricha
+        data_template:
+          source: '{{ source }}'
+    attributes:
+      state: input_boolean.taricha
+      source: input_select.taricha
+      source_list: "['1', '2', '3']"
+
+    # attributes:
+    #   is_volume_muted: ENTITY_ID|ATTRIBUTE
+    #   state: ENTITY_ID|ATTRIBUTE
+
 glances: !include malibu-point/entities/glances.yaml
 tuya: !include malibu-point/entities/tuya.yaml
 
