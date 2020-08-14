@@ -15,10 +15,11 @@ input_select:
   taricha:
     name: taricha source
     options:
+      - 0
       - 1
       - 2
       - 3
-    initial: 1
+    initial: 0
 
 rest_command:
   turn_on_taricha:
@@ -30,7 +31,8 @@ rest_command:
   select_source_taricha:
     url: http://192.168.111.181:7896/taricha/source
     method: POST
-    payload: '{"new_source": {{ new_source }}}'
+    payload: '{"new_source": {{ source }}}'
+    content_type: 'application/json'
 
 media_player:
   - platform: universal
@@ -49,7 +51,7 @@ media_player:
     attributes:
       state: input_boolean.taricha
       source: input_select.taricha
-      source_list: "['1', '2', '3']"
+      source_list: "['0', '1', '2', '3']"
 
     # attributes:
     #   is_volume_muted: ENTITY_ID|ATTRIBUTE
