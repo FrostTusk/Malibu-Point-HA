@@ -1,0 +1,80 @@
+- alias: 'Glue Automation: source changed to 0'
+  trigger:
+    - platform: state
+      entity_id: input_select.taricha
+      to: '0'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.taricha_ui
+      data:
+        option: 'default'
+- alias: 'Glue Automation: source changed to 1'
+  trigger:
+    - platform: state
+      entity_id: input_select.taricha
+      to: '1'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.taricha_ui
+      data:
+        option: 'Raspberry Pi'
+- alias: 'Glue Automation: source changed to 2'
+  trigger:
+    - platform: state
+      entity_id: input_select.taricha
+      to: '2'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.taricha_ui
+      data:
+        option: 'Chromecast'
+- alias: 'Glue Automation: source changed to 3'
+  trigger:
+    - platform: state
+      entity_id: input_select.taricha
+      to: '3'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.taricha_ui
+      data:
+        option: 'External'
+- alias: 'Glue Automation Reverse: source changed to 0'
+  trigger:
+    - platform: state
+      entity_id: input_select.taricha_ui
+      to: 'default'
+  action:
+    - service: media_player.select_source
+      entity_id: media_player.taricha
+      data:
+        source: '0'
+- alias: 'Glue Automation Reverse: source changed to 1'
+  trigger:
+    - platform: state
+      entity_id: input_select.taricha_ui
+      to: 'Raspberry Pi'
+  action:
+    - service: media_player.select_source
+      entity_id: media_player.taricha
+      data:
+        source: '1'
+- alias: 'Glue Automation Reverse: source changed to 2'
+  trigger:
+    - platform: state
+      entity_id: input_select.taricha_ui
+      to: 'Chromecast'
+  action:
+    - service: media_player.select_source
+      entity_id: media_player.taricha
+      data:
+        source: '2'
+- alias: 'Glue Automation Reverse: source changed to 3'
+  trigger:
+    - platform: state
+      entity_id: input_select.taricha_ui
+      to: 'External'
+  action:
+    - service: media_player.select_source
+      entity_id: media_player.taricha
+      data:
+        source: '3'

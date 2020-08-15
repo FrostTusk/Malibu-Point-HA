@@ -1,0 +1,16 @@
+taricha:
+  name: taricha source
+  options:
+    - 0
+    - 1
+    - 2
+    - 3
+  initial: 0
+taricha_ui:
+  name: taricha source
+  options:
+    - 'default'
+    - 'Raspberry Pi'
+    - 'Chromecast'
+    - 'External'
+  initial: 'default'

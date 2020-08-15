@@ -11,16 +11,25 @@ http:
 sensor: !include_dir_list malibu-point/entities/sensor
 alarm_control_panel: !include_dir_list malibu-point/entities/alarm_control_panel
 camera: !include_dir_list malibu-point/entities/camera
+media_player: !include_dir_list malibu-point/entities/media_player
+
+input_boolean: !include_dir_merge_named malibu-point/entities/input_boolean
+input_select: !include_dir_merge_named malibu-point/entities/input_select
 
 glances: !include malibu-point/entities/glances.yaml
 tuya: !include malibu-point/entities/tuya.yaml
 
 # ---
+# Services
+# ---
+rest_command: !include_dir_merge_named malibu-point/services/rest_command
+
+# ---
 # Automations
 # ---
-automation: !include malibu-point/automations.yaml
 script: !include malibu-point/scripts.yaml
 scene: !include malibu-point/scenes.yaml
+automation: !include_dir_merge_list malibu-point/automations
 
 # ---
 # Interfaces

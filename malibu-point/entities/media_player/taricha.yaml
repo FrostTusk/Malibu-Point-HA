@@ -1,0 +1,17 @@
+platform: universal
+name: taricha
+children:
+  - media_player.hyla
+commands:
+  turn_on:
+    service: rest_command.turn_on_taricha
+  turn_off:
+    service: rest_command.turn_off_taricha
+  select_source:
+    service: rest_command.select_source_taricha
+    data_template:
+      source: '{{ source }}'
+attributes:
+  state: input_boolean.taricha
+  source: input_select.taricha
+  source_list: "['0', '1', '2', '3']"
