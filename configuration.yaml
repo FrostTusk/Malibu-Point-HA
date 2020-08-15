@@ -11,154 +11,25 @@ http:
 sensor: !include_dir_list malibu-point/entities/sensor
 alarm_control_panel: !include_dir_list malibu-point/entities/alarm_control_panel
 camera: !include_dir_list malibu-point/entities/camera
+media_player: !include_dir_list malibu-point/entities/media_player
 
-input_boolean:
-  taricha:
-    name: taricha state
-input_select:
-  taricha:
-    name: taricha source
-    options:
-      - 0
-      - 1
-      - 2
-      - 3
-    initial: 0
-  taricha_source_ui:
-    name: taricha source
-    options:
-      - 'default'
-      - 'Raspberry Pi'
-      - 'Chromecast'
-      - 'External'
-    initial: 'default'
-
-rest_command:
-  turn_on_taricha:
-    url: http://192.168.111.181:7896/taricha/on
-    method: POST
-  turn_off_taricha:
-    url: http://192.168.111.181:7896/taricha/off
-    method: POST
-  select_source_taricha:
-    url: http://192.168.111.181:7896/taricha/source
-    method: POST
-    payload: '{"new_source": {{ source }}}'
-    content_type: 'application/json'
-
-media_player:
-  - platform: universal
-    name: taricha
-    children:
-      - media_player.hyla
-    commands:
-      turn_on:
-        service: rest_command.turn_on_taricha
-      turn_off:
-        service: rest_command.turn_off_taricha
-      select_source:
-        service: rest_command.select_source_taricha
-        data_template:
-          source: '{{ source }}'
-    attributes:
-      state: input_boolean.taricha
-      source: input_select.taricha
-      source_list: "['0', '1', '2', '3']"
-
-    # attributes:
-    #   is_volume_muted: ENTITY_ID|ATTRIBUTE
-    #   state: ENTITY_ID|ATTRIBUTE
+input_boolean: !include_dir_merge_named malibu-point/entities/input_boolean
+input_select: !include_dir_merge_named malibu-point/entities/input_select
 
 glances: !include malibu-point/entities/glances.yaml
 tuya: !include malibu-point/entities/tuya.yaml
 
 # ---
+# Services
+# ---
+rest_command: !include_dir_merge_named malibu-point/services/rest_command
+
+# ---
 # Automations
 # ---
-#automation: !include malibu-point/automations.yaml
 script: !include malibu-point/scripts.yaml
 scene: !include malibu-point/scenes.yaml
-automation:
-  - alias: 'Glue Automation: source changed to 0'
-    trigger:
-      - platform: state
-        entity_id: input_select.taricha
-        to: '0'
-    action:
-      - service: input_select.select_option
-        entity_id: input_select.taricha_source_ui
-        data:
-          option: 'default'
-  - alias: 'Glue Automation: source changed to 1'
-    trigger:
-      - platform: state
-        entity_id: input_select.taricha
-        to: '1'
-    action:
-      - service: input_select.select_option
-        entity_id: input_select.taricha_source_ui
-        data:
-          option: 'Raspberry Pi'
-  - alias: 'Glue Automation: source changed to 2'
-    trigger:
-      - platform: state
-        entity_id: input_select.taricha
-        to: '2'
-    action:
-      - service: input_select.select_option
-        entity_id: input_select.taricha_source_ui
-        data:
-          option: 'Chromecast'
-  - alias: 'Glue Automation: source changed to 3'
-    trigger:
-      - platform: state
-        entity_id: input_select.taricha
-        to: '3'
-    action:
-      - service: input_select.select_option
-        entity_id: input_select.taricha_source_ui
-        data:
-          option: 'External'
-  - alias: 'Glue Automation Reverse: source changed to 0'
-    trigger:
-      - platform: state
-        entity_id: input_select.taricha_source_ui
-        to: 'default'
-    action:
-      - service: media_player.select_source
-        entity_id: media_player.taricha
-        data:
-          source: '0'
-  - alias: 'Glue Automation Reverse: source changed to 1'
-    trigger:
-      - platform: state
-        entity_id: input_select.taricha_source_ui
-        to: 'Raspberry Pi'
-    action:
-      - service: media_player.select_source
-        entity_id: media_player.taricha
-        data:
-          source: '1'
-  - alias: 'Glue Automation Reverse: source changed to 2'
-    trigger:
-      - platform: state
-        entity_id: input_select.taricha_source_ui
-        to: 'Chromecast'
-    action:
-      - service: media_player.select_source
-        entity_id: media_player.taricha
-        data:
-          source: '2'
-  - alias: 'Glue Automation Reverse: source changed to 3'
-    trigger:
-      - platform: state
-        entity_id: input_select.taricha_source_ui
-        to: 'External'
-    action:
-      - service: media_player.select_source
-        entity_id: media_player.taricha
-        data:
-          source: '3
+automation: !include_dir_merge_list malibu-point/automations
 
 # ---
 # Interfaces

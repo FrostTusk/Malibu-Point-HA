@@ -1,0 +1,11 @@
+turn_on_taricha:
+  url: http://192.168.111.181:7896/taricha/on
+  method: POST
+turn_off_taricha:
+  url: http://192.168.111.181:7896/taricha/off
+  method: POST
+select_source_taricha:
+  url: http://192.168.111.181:7896/taricha/source
+  method: POST
+  payload: '{"new_source": {{ source }}}'
+  content_type: 'application/json'
