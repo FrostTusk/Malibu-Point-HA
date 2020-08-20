@@ -10,7 +10,7 @@ taricha_ui:
   name: taricha source
   options:
     - 'default'
-    - 'Raspberry Pi'
-    - 'Chromecast'
-    - 'External'
+    - 'ailurus'
+    - 'hyla'
+    - 'external'
   initial: 'default'
