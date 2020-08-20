@@ -1,2 +1,3 @@
 taricha:
   name: taricha state
+  initial: false

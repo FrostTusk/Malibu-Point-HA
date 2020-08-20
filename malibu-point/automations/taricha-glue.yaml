@@ -3,41 +3,57 @@
     - platform: state
       entity_id: input_select.taricha
       to: '0'
+  condition:
+    - condition: template
+      value_template: "{{ states.input_select.taricha_ui.state != 'default' }}"
   action:
     - service: input_select.select_option
       entity_id: input_select.taricha_ui
       data:
         option: 'default'
+
 - alias: 'Glue Automation: source changed to 1'
   trigger:
     - platform: state
       entity_id: input_select.taricha
       to: '1'
+  condition:
+    - condition: template
+      value_template: "{{ states.input_select.taricha_ui.state != 'ailurus' }}"
   action:
     - service: input_select.select_option
       entity_id: input_select.taricha_ui
       data:
-        option: 'Raspberry Pi'
+        option: 'ailurus'
+
 - alias: 'Glue Automation: source changed to 2'
   trigger:
     - platform: state
       entity_id: input_select.taricha
       to: '2'
+  condition:
+    - condition: template
+      value_template: "{{ states.input_select.taricha_ui.state != 'hyla' }}"
   action:
     - service: input_select.select_option
       entity_id: input_select.taricha_ui
       data:
-        option: 'Chromecast'
+        option: 'hyla'
+
 - alias: 'Glue Automation: source changed to 3'
   trigger:
     - platform: state
       entity_id: input_select.taricha
       to: '3'
+  condition:
+    - condition: template
+      value_template: "{{ states.input_select.taricha_ui.state != 'hyla' }}"
   action:
     - service: input_select.select_option
       entity_id: input_select.taricha_ui
       data:
-        option: 'External'
+        option: 'external'
+
 - alias: 'Glue Automation Reverse: source changed to 0'
   trigger:
     - platform: state
@@ -48,31 +64,34 @@
       entity_id: media_player.taricha
       data:
         source: '0'
+
 - alias: 'Glue Automation Reverse: source changed to 1'
   trigger:
     - platform: state
       entity_id: input_select.taricha_ui
-      to: 'Raspberry Pi'
+      to: 'ailurus'
   action:
     - service: media_player.select_source
       entity_id: media_player.taricha
       data:
         source: '1'
+
 - alias: 'Glue Automation Reverse: source changed to 2'
   trigger:
     - platform: state
       entity_id: input_select.taricha_ui
-      to: 'Chromecast'
+      to: 'hyla'
   action:
     - service: media_player.select_source
       entity_id: media_player.taricha
       data:
         source: '2'
+
 - alias: 'Glue Automation Reverse: source changed to 3'
   trigger:
     - platform: state
       entity_id: input_select.taricha_ui
-      to: 'External'
+      to: 'external'
   action:
     - service: media_player.select_source
       entity_id: media_player.taricha
