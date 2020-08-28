@@ -1,4 +1,4 @@
-- alias: 'Glue Automation: source changed to 0'
+- alias: 'Glue: taricha (t) and taricha_ui (a) if media_player changed to 0'
   trigger:
     - platform: state
       entity_id: input_select.taricha
@@ -12,7 +12,7 @@
       data:
         option: 'default'
 
-- alias: 'Glue Automation: source changed to 1'
+- alias: 'Glue: taricha (t) and taricha_ui (a) if media_player changed to 1'
   trigger:
     - platform: state
       entity_id: input_select.taricha
@@ -26,7 +26,7 @@
       data:
         option: 'ailurus'
 
-- alias: 'Glue Automation: source changed to 2'
+- alias: 'Glue: taricha (t) and taricha_ui (a) if media_player changed to 2'
   trigger:
     - platform: state
       entity_id: input_select.taricha
@@ -40,58 +40,70 @@
       data:
         option: 'hyla'
 
-- alias: 'Glue Automation: source changed to 3'
+- alias: 'Glue: taricha (t) and taricha_ui (a) if media_player changed to 3'
   trigger:
     - platform: state
       entity_id: input_select.taricha
       to: '3'
   condition:
     - condition: template
-      value_template: "{{ states.input_select.taricha_ui.state != 'hyla' }}"
+      value_template: "{{ states.input_select.taricha_ui.state != 'external' }}"
   action:
     - service: input_select.select_option
       entity_id: input_select.taricha_ui
       data:
         option: 'external'
 
-- alias: 'Glue Automation Reverse: source changed to 0'
+- alias: 'Glue: Taricha taricha_ui (t) and taricha (a) if ui changed to default'
   trigger:
     - platform: state
       entity_id: input_select.taricha_ui
       to: 'default'
+  condition:
+    - condition: template
+      value_template: "{{ states.input_select.taricha.state != '0' }}"
   action:
     - service: media_player.select_source
       entity_id: media_player.taricha
       data:
         source: '0'
 
-- alias: 'Glue Automation Reverse: source changed to 1'
+- alias: 'Glue: taricha_ui (t) and taricha (a) if ui changed to ailurus'
   trigger:
     - platform: state
       entity_id: input_select.taricha_ui
       to: 'ailurus'
+  condition:
+    - condition: template
+      value_template: "{{ states.input_select.taricha.state != '1' }}"
   action:
     - service: media_player.select_source
       entity_id: media_player.taricha
       data:
         source: '1'
 
-- alias: 'Glue Automation Reverse: source changed to 2'
+- alias: 'Glue: taricha_ui (t) and taricha (a) if ui changed to hyla'
   trigger:
     - platform: state
       entity_id: input_select.taricha_ui
       to: 'hyla'
+  condition:
+    - condition: template
+      value_template: "{{ states.input_select.taricha.state != '2' }}"
   action:
     - service: media_player.select_source
       entity_id: media_player.taricha
       data:
         source: '2'
 
-- alias: 'Glue Automation Reverse: source changed to 3'
+- alias: 'Glue: taricha_ui (t) and taricha (a) if ui changed to external'
   trigger:
     - platform: state
       entity_id: input_select.taricha_ui
       to: 'external'
+  condition:
+    - condition: template
+      value_template: "{{ states.input_select.taricha.state != '3' }}"
   action:
     - service: media_player.select_source
       entity_id: media_player.taricha
