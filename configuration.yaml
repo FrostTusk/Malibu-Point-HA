@@ -15,6 +15,7 @@ media_player: !include_dir_list malibu-point/entities/media_player
 
 input_boolean: !include_dir_merge_named malibu-point/entities/input_boolean
 input_select: !include_dir_merge_named malibu-point/entities/input_select
+counter:  !include_dir_merge_named malibu-point/entities/counter
 
 glances: !include malibu-point/entities/glances.yaml
 tuya: !include malibu-point/entities/tuya.yaml
@@ -51,6 +52,11 @@ google_assistant:
 # Other
 # ---
 group: !include malibu-point/groups.yaml
+
+# notify:
+#   - name: testFile
+#     platform: file
+#     filename: testFile
 
 tts:
   - platform: google_translate

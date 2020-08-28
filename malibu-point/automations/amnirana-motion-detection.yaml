@@ -1,0 +1,39 @@
+# - alias: 'Amnirana triggered Test Notification'
+#   trigger:
+#     - platform: numeric_state
+#       entity_id: counter.amnirana_motion_detector
+#       above: 0
+#   action:
+#     service: notify.testFile
+#     data:
+#       message: "Motion was Detected"
+#       title: "Amnirana Motion Detection"
+
+- alias: 'Amnirana triggered Mobile Push Notification'
+  trigger:
+    - platform: numeric_state
+      entity_id: counter.amnirana_motion_detector
+      above: 0
+  action:
+    service: notify.mobile_app_falco
+    data:
+      message: "Motion was Detected"
+      title: "Amnirana Motion Detection"
+
+- alias: 'Glue: Amnirana input_boolean (t) and counter (a)'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.amnirana_motion_detector
+      to: 'off'
+  action:
+    service: counter.reset
+    entity_id: counter.amnirana_motion_detector
+
+- alias: 'Glue: Amnirana counter (t) and input_boolean (a)'
+  trigger:
+    - platform: state
+      entity_id: counter.amnirana_motion_detector
+      to: '0'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.amnirana_motion_detector
