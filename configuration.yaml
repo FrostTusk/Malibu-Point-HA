@@ -46,6 +46,11 @@ google_assistant:
     - alarm_control_panel
     - switch
     - camera
+  entity_config:
+    media_player.taricha:
+      expose: true
+    input_select.taricha_ui:
+      expose: true
   secure_devices_pin: !secret google_secure_devices_pin
 
 # ---

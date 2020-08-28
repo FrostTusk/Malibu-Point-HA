@@ -10,3 +10,8 @@
   username: !secret glances_ursus_username
   password: !secret glances_ursus_password
   name: 'ursus'
+- host: '0.0.0.0'
+  port: 61309
+  username: !secret glances_hyaena_username
+  password: !secret glances_hyaena_password
+  name: 'hyaena'

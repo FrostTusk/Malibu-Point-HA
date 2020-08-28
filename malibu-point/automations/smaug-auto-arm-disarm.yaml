@@ -2,7 +2,7 @@
   trigger:
     - platform: state
       entity_id: person.mathijs
-      to: 'away'
+      to: 'not_home'
   action:
     - service: alarm_control_panel.alarm_arm_away
       entity_id: alarm_control_panel.smaug
