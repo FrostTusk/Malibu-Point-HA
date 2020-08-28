@@ -9,6 +9,7 @@ tts/
 
 # Configuration
 secrets.yaml
+SERVICE-ACCOUNT.json
 
 # Custom Components
 custom_components/smaug/const.py

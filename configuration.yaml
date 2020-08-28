@@ -40,7 +40,7 @@ frontend:
 
 google_assistant:
   project_id: home-assistant-140f3
-  service_account: !include malibu-point/SERVICE_ACCOUNT.JSON
+  service_account: !include SERVICE-ACCOUNT.json
   report_state: true
   exposed_domains:
     - alarm_control_panel
