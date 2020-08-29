@@ -38,6 +38,12 @@ automation: !include_dir_merge_list includes/automations
 frontend:
   themes: !include_dir_named includes/themes/
 
+climate:
+  - platform: generic_thermostat
+    name: Glances Google Test
+    heater: input_boolean.googleglue
+    target_sensor: sensor.ursus_core_0_temp
+
 google_assistant:
   project_id: home-assistant-140f3
   service_account: !include SERVICE-ACCOUNT.json
