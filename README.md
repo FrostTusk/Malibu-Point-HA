@@ -1,5 +1,6 @@
-# MP-Home-Assistant
-Home-Assistant Config  for Malibu Point
+# Malibu-Point-HA
+Home-Assistant Configuration for the Malibu Point infrastructure.
+![Image of Malibu Point](https://github.com/FrostTusk/Malibu-Point-HA/blob/master/Malibu-Point.png)
 
 ## Installing and Updating Home Assistant via docker
 ```
