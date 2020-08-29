@@ -71,7 +71,7 @@ google_assistant:
       room: 'Grandma's House'
     sensor.hyaena_core_1_temp:
       room: 'Grandma's House'
-    sensor.ailurus_cpu_thermal_1_temp
+    sensor.ailurus_cpu_thermal_1_temp:
       room: 'Loft'
   secure_devices_pin: !secret google_secure_devices_pin
 
