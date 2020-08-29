@@ -51,4 +51,4 @@
 - platform: generic_thermostat
   name: ailurus core 1 temperature
   heater: input_boolean.googleglue
-  target_sensor: ailurus_cpu_thermal_1_temp
+  target_sensor: sensor.ailurus_cpu_thermal_1_temp

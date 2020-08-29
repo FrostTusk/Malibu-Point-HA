@@ -1,0 +1,3 @@
+alarm_control_panel.smaug:
+  room: 'Loft'
+  expose: true

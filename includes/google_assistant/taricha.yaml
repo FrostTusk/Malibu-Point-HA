@@ -1,0 +1,6 @@
+media_player.taricha:
+  room: 'Loft'
+  expose: true
+input_select.taricha_ui:
+  room: 'Loft'
+  expose: true
