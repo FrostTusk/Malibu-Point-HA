@@ -1,33 +1,33 @@
 climate.ursus_core_0_temperature:
-  room: 'Loft'
+  room: 'Void'
   expose: true
 climate.ursus_core_1_temperature:
-  room: 'Loft'
+  room: 'Void'
   expose: true
 climate.ursus_battery_temperature:
-  room: 'Loft'
+  room: 'Void'
   expose: true
 climate.panthera_core_0_temperature:
-  room: 'Loft'
+  room: 'Void'
   expose: true
 climate.panthera_core_1_temperature:
-  room: 'Loft'
+  room: 'Void'
   expose: true
 climate.panthera_core_2_temperature:
-  room: 'Loft'
+  room: 'Void'
   expose: true
 climate.panthera_core_3_temperature:
-  room: 'Loft'
+  room: 'Void'
   expose: true
 climate.panthera_battery_temperature:
-  room: 'Loft'
+  room: 'Void'
   expose: true
 climate.hyaena_core_0_temperature:
-  room: 'Loft'
+  room: 'Void'
   expose: true
 climate.hyaena_core_1_temperature:
-  room: 'Loft'
+  room: 'Void'
   expose: true
 climate.ailurus_core_1_temperature:
-  room: 'Loft'
+  room: 'Void'
   expose: true
