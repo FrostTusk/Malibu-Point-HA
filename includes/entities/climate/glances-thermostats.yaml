@@ -1,0 +1,39 @@
+- platform: generic_thermostat
+  name: ursus core 0 temperature
+  heater: input_boolean.googleglue
+  target_sensor: sensor.ursus_core_0_temp
+
+- platform: generic_thermostat
+  name: ursus core 1 temperature
+  heater: input_boolean.googleglue
+  target_sensor: sensor.ursus_core_1_temp
+
+- platform: generic_thermostat
+  name: ursus battery temperature
+  heater: input_boolean.googleglue
+  target_sensor: sensor.ursus_battery_temp
+
+- platform: generic_thermostat
+  name: panthera core 0 temperature
+  heater: input_boolean.googleglue
+  target_sensor: sensor.panthera_core_0_temp
+
+- platform: generic_thermostat
+  name: panthera core 1 temperature
+  heater: input_boolean.googleglue
+  target_sensor: sensor.panthera_core_1_temp
+
+- platform: generic_thermostat
+  name: panthera core 2 temperature
+  heater: input_boolean.googleglue
+  target_sensor: sensor.panthera_core_2_temp
+
+- platform: generic_thermostat
+  name: panthera core 3 temperature
+  heater: input_boolean.googleglue
+  target_sensor: sensor.panthera_core_3_temp
+
+- platform: generic_thermostat
+  name: panthera battery temperature
+  heater: input_boolean.googleglue
+  target_sensor: sensor.panthera_battery_temp

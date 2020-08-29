@@ -12,6 +12,7 @@ sensor: !include_dir_merge_list includes/entities/sensor
 alarm_control_panel: !include_dir_merge_list includes/entities/alarm_control_panel
 camera: !include_dir_merge_list includes/entities/camera
 media_player: !include_dir_merge_list includes/entities/media_player
+climate: !include_dir_merge_list includes/entities/climate
 
 input_boolean: !include_dir_merge_named includes/entities/input_boolean
 input_select: !include_dir_merge_named includes/entities/input_select
@@ -38,11 +39,6 @@ automation: !include_dir_merge_list includes/automations
 frontend:
   themes: !include_dir_named includes/themes/
 
-climate:
-  - platform: generic_thermostat
-    name: Glances Google Test
-    heater: input_boolean.googleglue
-    target_sensor: sensor.ursus_core_0_temp
 
 google_assistant:
   project_id: home-assistant-140f3
@@ -50,6 +46,7 @@ google_assistant:
   report_state: true
   exposed_domains:
     - switch
+    - climate
   entity_config:
     alarm_control_panel.smaug:
       room: 'Loft'
