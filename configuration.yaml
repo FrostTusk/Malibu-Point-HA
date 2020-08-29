@@ -43,14 +43,36 @@ google_assistant:
   service_account: !include SERVICE-ACCOUNT.json
   report_state: true
   exposed_domains:
-    - alarm_control_panel
     - switch
-    - camera
   entity_config:
+    alarm_control_panel.smaug:
+      room: 'Loft'
     media_player.taricha:
-      expose: true
+      room: 'Loft'
     input_select.taricha_ui:
-      expose: true
+      room: 'Loft'
+    sensor.ursus_core_0_temp:
+      room: 'Grandma's House'
+    sensor.ursus_core_1_temp:
+      room: 'Grandma's House'
+    sensor.ursus_battery_temp:
+      room: 'Grandma's House'
+    sensor.panthera_core_0_temp:
+      room: 'Loft'
+    sensor.panthera_core_1_temp:
+      room: 'Loft'
+    sensor.panthera_core_2_temp:
+      room: 'Loft'
+    sensor.panthera_core_3_temp:
+      room: 'Loft'
+    sensor.panthera_battery_temp:
+      room: 'Loft'
+    sensor.hyaena_core_0_temp:
+      room: 'Grandma's House'
+    sensor.hyaena_core_1_temp:
+      room: 'Grandma's House'
+    sensor.ailurus_cpu_thermal_1_temp
+      room: 'Loft'
   secure_devices_pin: !secret google_secure_devices_pin
 
 # ---
