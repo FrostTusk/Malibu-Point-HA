@@ -47,32 +47,38 @@ google_assistant:
   entity_config:
     alarm_control_panel.smaug:
       room: 'Loft'
+      expose: true
     media_player.taricha:
       room: 'Loft'
+      expose: true
     input_select.taricha_ui:
       room: 'Loft'
+      expose: true
     sensor.ursus_core_0_temp:
-      room: "Grandma's House"
+      room: 'Loft'
+      expose: true
     sensor.ursus_core_1_temp:
       room: "Grandma's House"
+      expose: true
     sensor.ursus_battery_temp:
       room: "Grandma's House"
-    sensor.panthera_core_0_temp:
-      room: 'Loft'
-    sensor.panthera_core_1_temp:
-      room: 'Loft'
-    sensor.panthera_core_2_temp:
-      room: 'Loft'
-    sensor.panthera_core_3_temp:
-      room: 'Loft'
-    sensor.panthera_battery_temp:
-      room: 'Loft'
-    sensor.hyaena_core_0_temp:
-      room: "Grandma's House"
-    sensor.hyaena_core_1_temp:
-      room: "Grandma's House"
-    sensor.ailurus_cpu_thermal_1_temp:
-      room: 'Loft'
+      expose: true
+    #sensor.panthera_core_0_temp:
+      #room: 'Loft'
+    #sensor.panthera_core_1_temp:
+      #room: 'Loft'
+    #sensor.panthera_core_2_temp:
+      #room: 'Loft'
+    #sensor.panthera_core_3_temp:
+      #room: 'Loft'
+    #sensor.panthera_battery_temp:
+      #room: 'Loft'
+    #sensor.hyaena_core_0_temp:
+    #room: "Grandma's House"
+    #sensor.hyaena_core_1_temp:
+    # room: "Grandma's House"
+    # sensor.ailurus_cpu_thermal_1_temp:
+    #  room: 'Loft'
   secure_devices_pin: !secret google_secure_devices_pin
 
 # ---
