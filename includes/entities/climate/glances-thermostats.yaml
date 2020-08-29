@@ -37,3 +37,18 @@
   name: panthera battery temperature
   heater: input_boolean.googleglue
   target_sensor: sensor.panthera_battery_temp
+
+- platform: generic_thermostat
+  name: hyaena core 0 temperature
+  heater: input_boolean.googleglue
+  target_sensor: sensor.hyaena_core_0_temp
+
+- platform: generic_thermostat
+  name: hyaena core 1 temperature
+  heater: input_boolean.googleglue
+  target_sensor: sensor.hyaena_core_1_temp
+
+- platform: generic_thermostat
+  name: ailurus core 1 temperature
+  heater: input_boolean.googleglue
+  target_sensor: ailurus_cpu_thermal_1_temp
