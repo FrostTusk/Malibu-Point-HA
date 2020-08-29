@@ -52,11 +52,11 @@ google_assistant:
     input_select.taricha_ui:
       room: 'Loft'
     sensor.ursus_core_0_temp:
-      room: 'Grandma's House'
+      room: "Grandma's House"
     sensor.ursus_core_1_temp:
-      room: 'Grandma's House'
+      room: "Grandma's House"
     sensor.ursus_battery_temp:
-      room: 'Grandma's House'
+      room: "Grandma's House"
     sensor.panthera_core_0_temp:
       room: 'Loft'
     sensor.panthera_core_1_temp:
@@ -68,9 +68,9 @@ google_assistant:
     sensor.panthera_battery_temp:
       room: 'Loft'
     sensor.hyaena_core_0_temp:
-      room: 'Grandma's House'
+      room: "Grandma's House"
     sensor.hyaena_core_1_temp:
-      room: 'Grandma's House'
+      room: "Grandma's House"
     sensor.ailurus_cpu_thermal_1_temp:
       room: 'Loft'
   secure_devices_pin: !secret google_secure_devices_pin
