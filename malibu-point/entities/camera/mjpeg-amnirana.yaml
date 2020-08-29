@@ -1,6 +1,0 @@
-platform: mjpeg
-name: amnirana camera
-mjpeg_url: http://192.168.111.182/mjpeg.cgi
-username: !secret amnirana_username
-password: !secret amnirana_password
-authentication: basic

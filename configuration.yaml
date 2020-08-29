@@ -8,35 +8,35 @@ http:
 # ---
 # Entities
 # ---
-sensor: !include_dir_list malibu-point/entities/sensor
-alarm_control_panel: !include_dir_list malibu-point/entities/alarm_control_panel
-camera: !include_dir_list malibu-point/entities/camera
-media_player: !include_dir_list malibu-point/entities/media_player
+sensor: !include_dir_merge_list includes/entities/sensor
+alarm_control_panel: !include_dir_merge_list includes/entities/alarm_control_panel
+camera: !include_dir_merge_list includes/entities/camera
+media_player: !include_dir_merge_list includes/entities/media_player
 
-input_boolean: !include_dir_merge_named malibu-point/entities/input_boolean
-input_select: !include_dir_merge_named malibu-point/entities/input_select
-counter:  !include_dir_merge_named malibu-point/entities/counter
+input_boolean: !include_dir_merge_named includes/entities/input_boolean
+input_select: !include_dir_merge_named includes/entities/input_select
+counter:  !include_dir_merge_named includes/entities/counter
 
-glances: !include malibu-point/entities/glances.yaml
-tuya: !include malibu-point/entities/tuya.yaml
+glances: !include includes/entities/glances.yaml
+tuya: !include includes/entities/tuya.yaml
 
 # ---
 # Services
 # ---
-rest_command: !include_dir_merge_named malibu-point/services/rest_command
+rest_command: !include_dir_merge_named includes/services/rest_command
 
 # ---
 # Automations
 # ---
-script: !include malibu-point/scripts.yaml
-scene: !include malibu-point/scenes.yaml
-automation: !include_dir_merge_list malibu-point/automations
+script: !include includes/scripts.yaml
+scene: !include includes/scenes.yaml
+automation: !include_dir_merge_list includes/automations
 
 # ---
 # Interfaces
 # ---
 frontend:
-  themes: !include_dir_named malibu-point/themes/
+  themes: !include_dir_named includes/themes/
 
 google_assistant:
   project_id: home-assistant-140f3
@@ -56,7 +56,7 @@ google_assistant:
 # ---
 # Other
 # ---
-group: !include malibu-point/groups.yaml
+group: !include includes/groups.yaml
 
 # notify:
 #   - name: testFile
