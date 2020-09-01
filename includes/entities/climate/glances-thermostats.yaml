@@ -1,3 +1,5 @@
+# Generic thermostats which are used as wrappers of underlying temperature sensors
+# so that the sensors can be added to google home.
 - platform: generic_thermostat
   name: ursus core 0 temperature
   heater: input_boolean.googleglue

@@ -1,3 +1,5 @@
+# Tracks how many times motion detection was triggered via amnirana
+# since last reset.
 amnirana_motion_detector:
   initial: 0
   step: 1
