@@ -1,6 +1,16 @@
+# amnirana is a DCS5020L camera
 - platform: mjpeg
   name: amnirana camera
   mjpeg_url: http://192.168.111.182/mjpeg.cgi
   username: !secret amnirana_username
   password: !secret amnirana_password
   authentication: basic
+
+# Doesn't work currently, but would be better for google home
+# - platform: generic
+#   name: amnirana generic camera
+#   still_image_url: http://192.168.111.182/mjpeg.cgi
+#   stream_source: http://192.168.111.182/video/mjpg.cgi
+#   username: !secret amnirana_username
+#   password: !secret amnirana_password
+#   authentication: basic
