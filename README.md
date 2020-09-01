@@ -7,13 +7,14 @@ Malibu Point makes use of an unusual naming system, this is mostly because I oft
 The Naming System is based on animal taxonomy.
 
 1. Amphibians: Actual IoT devices
-  1. Salamanders: custom built IoT devices.
-    1. taricha
-  2. Frogs: off-the-shelf IoT devices
-    1. amnirana: DCS-5020L Camera
-    2. litoria: HP Color LaserJet Pro MFP M177fw
-    3. hyla: Chromecast
-    4. acris: Google Nest Mini (2nd gen)
+    1. Salamanders: custom built IoT devices.
+        1. taricha
+    2. Frogs: off-the-shelf IoT devices
+        1. amnirana: DCS-5020L Camera
+        2. litoria: HP Color LaserJet Pro MFP M177fw
+        3. hyla: Chromecast
+        4. acris: Google Nest Mini (2nd gen)
+
 2. Mammals: represent more traditional computing devices.
   1. ursus: main public server
   2. ailurus: raspberry pi
