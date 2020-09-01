@@ -5,32 +5,34 @@ Home-Assistant Configuration for the Malibu Point infrastructure.
 ## Naming System
 Malibu Point makes use of an unusual naming system, this is mostly because I oftentimes make completely custom components or use devices that aren't typically used in a smart home.
 The Naming System is based on animal taxonomy.
-* Amphibians are either salamanders (off-the-shelf IoT Device) or frogs (custom built IoT)
-* Mammals represent "servers" or "workstations". Basically more traditional computing devices.
-* Sea Creatures are network devices (routers, switches, etc.).
-* Reptilians are storage devices.
-* Birds are mobile devices.
 
-## Devices
-1. taricha
-2. hyla
-3. acris
-4. amnirana
-5. ursus
-6. ailurus
-7. panthera
-8. hyaena
-9. litoria
+1. Amphibians: Actual IoT devices
+  1. Salamanders: custom built IoT devices.
+    1. taricha
+  2. Frogs: off-the-shelf IoT devices
+    1. amnirana: DCS-5020L Camera
+    2. litoria: HP Color LaserJet Pro MFP M177fw
+    3. hyla: Chromecast
+    4. acris: Google Nest Mini (2nd gen)
+2. Mammals: represent more traditional computing devices.
+  1. ursus: main public server
+  2. ailurus: raspberry pi
+  3. panthera: main workstation
+  4. hyaena: secondary public server
+3. Birds: mobile devices.
+  1. Falco: iPhone
+4. Sea Creatures: network devices (routers, switches, etc.).
+5. Reptilians: storage devices (usbs, sd-cards, etc.).
+
 
 ## UI Integrations
-1. Google Cast:
-  * hyla
-  * acris
+1. Google Cast
+  * hyla: Chromcast
+  * acris: Google Nest Mini (2nd gen)
 2. Internet Printing Protocol (IPP)
-  * litoria
-  * litoria-auto-fax
-  * litoria-auto-print
-  
+  * litoria: main ipp queue of the physical printer
+  * litoria-auto-fax: fax queue generated on ailurus CUPS server
+  * litoria-auto-print: print queue generated on ailurus CUPS server
 3. Coronavirus (COVID-19)
 
 ## Installing and Updating Home Assistant via docker
