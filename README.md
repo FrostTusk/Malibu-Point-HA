@@ -27,12 +27,12 @@ The Naming System is based on animal taxonomy.
 
 ## UI Integrations
 1. Google Cast
-  * hyla: Chromcast
-  * acris: Google Nest Mini (2nd gen)
+    * hyla: Chromcast
+    * acris: Google Nest Mini (2nd gen)
 2. Internet Printing Protocol (IPP)
-  * litoria: main ipp queue of the physical printer
-  * litoria-auto-fax: fax queue generated on ailurus CUPS server
-  * litoria-auto-print: print queue generated on ailurus CUPS server
+    * litoria: main ipp queue of the physical printer
+    * litoria-auto-fax: fax queue generated on ailurus CUPS server
+    * litoria-auto-print: print queue generated on ailurus CUPS server
 3. Coronavirus (COVID-19)
 
 ## Installing and Updating Home Assistant via docker
