@@ -11,6 +11,28 @@ The Naming System is based on animal taxonomy.
 * Reptilians are storage devices.
 * Birds are mobile devices.
 
+## Devices
+1. taricha
+2. hyla
+3. acris
+4. amnirana
+5. ursus
+6. ailurus
+7. panthera
+8. hyaena
+9. litoria
+
+## UI Integrations
+1. Google Cast:
+  * hyla
+  * acris
+2. Internet Printing Protocol (IPP)
+  * litoria
+  * litoria-auto-fax
+  * litoria-auto-print
+  
+3. Coronavirus (COVID-19)
+
 ## Installing and Updating Home Assistant via docker
 ```
 (For Installing, only steps 3 and 4 are important)

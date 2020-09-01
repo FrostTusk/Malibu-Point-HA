@@ -1,5 +1,4 @@
-# taricha is a panasonic tv without ip stack which can be connected to home assistant
-# through a G.I.N.G.E.R. instance with an HDMI-CEC trick.
+# Tracks whether taricha is turned on or off.
 taricha:
   name: taricha state
   initial: false

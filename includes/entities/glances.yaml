@@ -1,3 +1,4 @@
+# glances allows me to track zoo-net (my network) in semi-real time.
 - host: '192.168.111.181'
   username: !secret glances_ailurus_username
   password: !secret glances_ailurus_password
