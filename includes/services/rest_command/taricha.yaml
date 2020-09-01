@@ -1,3 +1,4 @@
+# Rest commands used to control the taricha server running on ailurus
 turn_on_taricha:
   url: http://192.168.111.181:7896/taricha/on
   method: POST
