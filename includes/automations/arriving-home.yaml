@@ -1,4 +1,4 @@
-- alias: 'Auto-disarm S.M.A.U.G.'
+- alias: 'Arriving Home'
   trigger:
     - platform: state
       entity_id: person.mathijs
@@ -6,3 +6,13 @@
   action:
     - service: alarm_control_panel.alarm_disarm
       entity_id: alarm_control_panel.smaug
+    - service: media_player.turn_on
+      entity_id: media_player.taricha
+    - service: input_select.select_option
+      entity_id: input_select.taricha_ui
+      data:
+        option: default
+    - service: input_select.select_option
+      entity_id: input_select.taricha_ui
+      data:
+        option: hyla
