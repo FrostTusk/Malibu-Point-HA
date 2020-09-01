@@ -1,6 +1,12 @@
 # Malibu-Point-HA
 Home-Assistant Configuration for the Malibu Point infrastructure.
-![Image of Malibu Point](https://github.com/FrostTusk/Malibu-Point-HA/blob/master/Malibu-Point.png)
+Malibu Point is an IoT infrastructure deployed on a personal computer network called zoo-net.
+It's part of my overall IT infrastructure called zoo.
+### Home View
+![Image of Malibu Point](Malibu-Point.png)
+
+### Zoo-net View
+![Image of Zoo-Net](zoo-network.png)
 
 ## Naming System
 Malibu Point makes use of an unusual naming system, this is mostly because I oftentimes make completely custom components or use devices that aren't typically used in a smart home.
