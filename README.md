@@ -14,14 +14,13 @@ The Naming System is based on animal taxonomy.
         2. litoria: HP Color LaserJet Pro MFP M177fw
         3. hyla: Chromecast
         4. acris: Google Nest Mini (2nd gen)
-
 2. Mammals: represent more traditional computing devices.
-  1. ursus: main public server
-  2. ailurus: raspberry pi
-  3. panthera: main workstation
-  4. hyaena: secondary public server
+    1. ursus: main public server
+    2. ailurus: raspberry pi
+    3. panthera: main workstation
+    4. hyaena: secondary public server
 3. Birds: mobile devices.
-  1. Falco: iPhone
+    1. Falco: iPhone
 4. Sea Creatures: network devices (routers, switches, etc.).
 5. Reptilians: storage devices (usbs, sd-cards, etc.).
 
