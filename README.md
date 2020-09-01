@@ -2,6 +2,11 @@
 Home-Assistant Configuration for the Malibu Point infrastructure.
 Malibu Point is an IoT infrastructure deployed on a personal computer network called zoo-net.
 It's part of my overall IT infrastructure called zoo.
+Most of the config file is split up into different components that can be found in the *includes/* directory.
+There's also a custom component (SMAUG) which I like to play around with that can be found in *custom_components/*.
+SMAUG (Some Majestic Alarm Unit Guard) is an alarm control panel that I used to delve into the actual code part of Home Assistant.
+*www/* is used to provide public resources.
+
 ### Home View
 ![Image of Malibu Point](Malibu-Point.png)
 
