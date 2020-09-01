@@ -1,0 +1,8 @@
+- alias: 'Auto-disarm S.M.A.U.G.'
+  trigger:
+    - platform: state
+      entity_id: person.mathijs
+      to: 'home'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.smaug
