@@ -6,7 +6,7 @@ Home-Assistant Configuration for the Malibu Point infrastructure.
 Malibu Point makes use of an unusual naming system, this is mostly because I oftentimes make completely custom components or use devices that aren't typically used in a smart home.
 The Naming System is based on animal taxonomy.
 
-1. Amphibians: Actual IoT devices
+* Amphibians: Actual IoT devices
     * Salamanders: custom built IoT devices.
         * taricha
     * Frogs: off-the-shelf IoT devices
@@ -14,26 +14,26 @@ The Naming System is based on animal taxonomy.
         * litoria: HP Color LaserJet Pro MFP M177fw
         * hyla: Chromecast
         * acris: Google Nest Mini (2nd gen)
-2. Mammals: represent more traditional computing devices.
+* Mammals: represent more traditional computing devices.
     * ursus: main public server
     * ailurus: raspberry pi
     * panthera: main workstation
     * hyaena: secondary public server
-3. Birds: mobile devices.
+* Birds: mobile devices.
     * Falco: iPhone
-4. Sea Creatures: network devices (routers, switches, etc.).
-5. Reptilians: storage devices (usbs, sd-cards, etc.).
+* Sea Creatures: network devices (routers, switches, etc.).
+* Reptilians: storage devices (usbs, sd-cards, etc.).
 
 
 ## UI Integrations
-1. Google Cast
+* Google Cast
     * hyla: Chromcast
     * acris: Google Nest Mini (2nd gen)
-2. Internet Printing Protocol (IPP)
+* Internet Printing Protocol (IPP)
     * litoria: main ipp queue of the physical printer
     * litoria-auto-fax: fax queue generated on ailurus CUPS server
     * litoria-auto-print: print queue generated on ailurus CUPS server
-3. Coronavirus (COVID-19)
+* Coronavirus (COVID-19)
 
 ## Installing and Updating Home Assistant via docker
 ```
