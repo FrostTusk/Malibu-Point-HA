@@ -16,3 +16,32 @@
       entity_id: input_select.taricha_ui
       data:
         option: hyla
+
+- alias: 'Arriving Home at night'
+  trigger:
+    - platform: state
+      entity_id: person.mathijs
+      to: 'home'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.bedroom_light
+    - service: switch.turn_on
+      entity_id: switch.living_light
+    - service:  switch.turn_on
+      entity_id: switch.office_light
+
+- alias: "Arriving Home when it's hot"
+  trigger:
+    - platform: state
+      entity_id: person.mathijs
+      to: 'home'
+  condition:
+    - condition: template
+      value_template: '{{ state_attr("weather.malibu_point", "temperature") >= 30 }}'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.office_floor_fan
