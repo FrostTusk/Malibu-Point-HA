@@ -16,3 +16,8 @@
   username: !secret glances_hyaena_username
   password: !secret glances_hyaena_password
   name: 'hyaena'
+  #- host: '127.0.0.1'
+  #port: 61310
+  #username: !secret glances_meles_username
+  #password: !secret glances_meles_password
+  #name: 'meles'

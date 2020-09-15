@@ -17,4 +17,6 @@ taricha_ui:
     - 'ailurus'
     - 'hyla'
     - 'external'
+    - 'raspberry pi'
+    - 'chromecast'
   initial: 'default'
