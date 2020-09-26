@@ -2,7 +2,7 @@
   trigger:
     - platform: state
       entity_id: input_select.taricha_ui
-      to: 'external'
+      to: 'hyla'
   condition:
     - condition: template
       value_template: "{{ states.input_select.taricha.state != '3' }}"
