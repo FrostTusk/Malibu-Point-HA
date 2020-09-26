@@ -2,7 +2,7 @@
   trigger:
     - platform: state
       entity_id: input_select.taricha_ui
-      to: 'hyla'
+      to: 'chromecast'
   condition:
     - condition: template
       value_template: "{{ states.input_select.taricha.state != '3' }}"
@@ -10,7 +10,7 @@
     - service: input_select.select_option
       entity_id: input_select.taricha_ui
       data:
-        option: 'chromecast'
+        option: 'hyla'
 
 - alias: 'Alias: taricha ui ailurus -> raspberry pi'
   trigger:
