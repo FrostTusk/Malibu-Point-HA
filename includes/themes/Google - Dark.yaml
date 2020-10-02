@@ -1,3 +1,4 @@
+google_dark:
   ### Fonts ###
   primary-font-family: "'Open Sans','Rubik',Roboto,sans-serif"
   paper-font-common-base_-_font-family: "var(--primary-font-family)"
