@@ -1,4 +1,4 @@
-- alias: 'Alias: taricha ui hyla -> chromecast'
+- alias: '[ALIAS] if taricha_ui = chromecast then taricha_ui = hyla'
   trigger:
     - platform: state
       entity_id: input_select.taricha_ui
@@ -12,7 +12,7 @@
       data:
         option: 'hyla'
 
-- alias: 'Alias: taricha ui ailurus -> raspberry pi'
+- alias: '[ALIAS] if taricha_ui = raspberry pi then taricha_ui = ailurus'
   trigger:
     - platform: state
       entity_id: input_select.taricha_ui
