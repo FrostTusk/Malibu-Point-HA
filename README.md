@@ -38,7 +38,7 @@ The Naming System is based on animal taxonomy.
     * **panthera:** main workstation
     * **hyaena:** secondary public server
 * Birds: mobile devices.
-    * **Falco:** iPhone
+    * **falco:** iPhone
 * Sea Creatures: network devices (routers, switches, etc.).
 * Reptilians: storage devices (usbs, sd-cards, etc.).
    * **varanus:** ursus back-up drive
