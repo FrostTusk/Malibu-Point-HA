@@ -1,0 +1,318 @@
+# from https://github.com/FrostTusk/Malibu-Point-HA/lovelace-ui.yaml
+custom_header:
+  compact_mode: true
+title: Malibu Point
+views:
+  - cards:
+      - cards:
+          - entity: weather.malibu_point
+            type: weather-forecast
+          - type: entity
+            entity: sensor.time
+          - entity: alarm_control_panel.smaug
+            states:
+              - arm_away
+            type: alarm-panel
+        type: vertical-stack
+      - cards:
+          - entities:
+              - entity: switch.bedroom_light
+              - entity: switch.living_light
+              - entity: switch.office_light
+            show_header_toggle: true
+            title: Lights
+            type: entities
+          - entities:
+              - entity: person.mathijs
+              - entity: sensor.falco_steps
+              - entity: sensor.falco_battery_level
+              - entity: sensor.falco_ssid
+            type: glance
+            state_color: true
+          - entities:
+              - binary_sensor.updater
+              - entity: zone.home
+                icon: 'mdi:restart'
+                name: Restart
+                tap_action:
+                  action: call-service
+                  service: homeassistant.restart
+              - entity: camera.amnirana
+              - entity: media_player.taricha
+            show_state: false
+            type: glance
+            state_color: true
+          - entities:
+              - entity: input_select.taricha_ui
+              - entity: sensor.hp_color_laserjet_pro_mfp_m177fw
+              - entity: counter.amnirana_motion_detector
+              - entity: switch.office_floor_fan
+            show_header_toggle: false
+            type: entities
+        type: vertical-stack
+      - cards:
+          - type: 'custom:mini-media-player'
+            artwork: cover
+            entity: media_player.acris
+            info: short
+          - type: 'custom:mini-media-player'
+            entity: media_player.hyla
+            artwork: cover
+            info: short
+          - aspect_ratio: 100%
+            type: iframe
+            url: 'https://hub.industries'
+        type: vertical-stack
+      - cards:
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.memory_use_percent
+                min: 0
+                max: 100
+                severity:
+                  green: 0
+                  yellow: 50
+                  red: 75
+              - type: gauge
+                entity: sensor.ailurus_ram_used_percent
+                min: 0
+                max: 100
+                severity:
+                  green: 0
+                  yellow: 50
+                  red: 75
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.ursus_ram_used_percent
+                min: 0
+                max: 100
+                severity:
+                  green: 0
+                  yellow: 50
+                  red: 75
+              - type: gauge
+                entity: sensor.hyaena_ram_used_percent
+                min: 0
+                max: 100
+                severity:
+                  green: 0
+                  yellow: 50
+                  red: 75
+          - type: entities
+            entities:
+              - entity: sensor.last_boot
+              - entity: sensor.ipv4_address_enp9s0
+              - entity: sensor.ipv4_address_wlp5s0b1
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.load_15m
+        type: vertical-stack
+    panel: false
+    path: default_view
+    title: Home
+  - badges: []
+    cards:
+      - entities:
+          - entity: device_tracker.falco
+          - entity: zone.home
+        hours_to_show: 72
+        type: map
+    panel: true
+    title: Map
+  - badges: []
+    cards:
+      - cards:
+          - entities:
+              - entity: sensor.hyaena_cpu_used
+              - entity: sensor.hyaena_cpu_load
+              - entity: sensor.hyaena_swap_used_percent
+              - entity: sensor.hyaena_containers_active
+              - entity: sensor.hyaena_used
+              - entity: sensor.hyaena_free
+            title: Hyaena
+            type: entities
+          - entities:
+              - entity: sensor.hyaena_ram_used
+              - entity: sensor.hyaena_ram_free
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+          - entities:
+              - entity: sensor.hyaena_core_0_temp
+              - entity: sensor.hyaena_core_1_temp
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+        type: vertical-stack
+      - cards:
+          - entities:
+              - entity: sensor.ursus_cpu_used
+              - entity: sensor.ursus_cpu_load
+              - entity: sensor.ursus_swap_used_percent
+              - entity: sensor.ursus_containers_active
+              - entity: sensor.ursus_used
+              - entity: sensor.ursus_free
+            title: Ursus
+            type: entities
+          - entities:
+              - entity: sensor.ursus_ram_used
+              - entity: sensor.ursus_ram_free
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+          - entities:
+              - entity: sensor.ursus_core_0_temp
+              - entity: sensor.ursus_core_1_temp
+              - entity: sensor.ursus_core_2_temp
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+        type: vertical-stack
+      - type: vertical-stack
+        cards:
+          - type: entity
+            entity: sensor.ursus_battery_temp
+          - type: gauge
+            entity: sensor.ursus_media_varanus_used_percent
+            min: 0
+            max: 100
+          - type: gauge
+            entity: sensor.ursus_media_caiman_used_percent
+            min: 0
+            max: 100
+    path: aslan
+    title: Aslan
+  - badges: []
+    cards:
+      - cards:
+          - entities:
+              - entity: sensor.processor_use
+              - entity: sensor.load_5m
+              - entity: sensor.load_15m
+              - entity: sensor.swap_use_percent
+              - entity: sensor.disk_use
+              - entity: sensor.disk_free
+            title: Lutra
+            type: entities
+          - entities:
+              - entity: sensor.memory_use
+              - entity: sensor.memory_free
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+          - entities:
+              - entity: sensor.processor_temperature
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+        type: vertical-stack
+      - cards:
+          - entities:
+              - entity: sensor.ailurus_cpu_used
+              - entity: sensor.ailurus_cpu_load
+              - entity: sensor.ailurus_swap_used_percent
+              - entity: sensor.ailurus_containers_active
+              - entity: sensor.ailurus_used
+              - entity: sensor.ailurus_free
+            title: Ailurus
+            type: entities
+          - entities:
+              - entity: sensor.ailurus_ram_used
+              - entity: sensor.ailurus_ram_free
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+          - entities:
+              - entity: sensor.ailurus_cpu_thermal_1_temp
+            hours_to_show: 10000000
+            refresh_interval: 0
+            type: history-graph
+        type: vertical-stack
+      - cards:
+          - entities:
+              - entity: sensor.panthera_cpu_used
+              - entity: sensor.panthera_cpu_load
+              - entity: sensor.panthera_swap_used_percent
+              - entity: sensor.panthera_containers_active
+              - entity: sensor.panthera_used
+              - entity: sensor.panthera_free
+            title: Panthera
+            type: entities
+          - entities:
+              - entity: sensor.panthera_ram_used
+              - entity: sensor.panthera_ram_free
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+          - entities:
+              - entity: sensor.panthera_core_0_temp
+              - entity: sensor.panthera_core_1_temp
+              - entity: sensor.panthera_core_2_temp
+              - entity: sensor.panthera_core_3_temp
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+        type: vertical-stack
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.network_throughput_in_enp9s0
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.network_throughput_out_enp9s0
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.network_throughput_in_wlp5s0b1
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.network_throughput_out_wlp5s0b1
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.speedtest_download
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.speedtest_upload
+          - type: horizontal-stack
+            cards:
+              - type: entity
+                entity: sensor.speedtest_ping
+              - type: entity
+                entity: sensor.panthera_battery_temp
+          - type: gauge
+            entity: sensor.ailurus_media_pi_vipera_used_percent
+            min: 0
+            max: 100
+    path: reinaart
+    title: Reinaart
+  - badges: []
+    cards:
+      - entities:
+          - entity: sensor.worldwide_coronavirus_confirmed
+          - entity: sensor.worldwide_coronavirus_deaths
+          - entity: sensor.belgium_coronavirus_confirmed
+          - entity: sensor.belgium_coronavirus_recovered
+          - entity: sensor.belgium_coronavirus_deaths
+          - entity: sensor.us_coronavirus_confirmed
+          - entity: sensor.us_coronavirus_recovered
+          - entity: sensor.us_coronavirus_deaths
+        title: Corona Lifetime
+        type: entities
+      - entity: sensor.belgium_coronavirus_current
+        graph: line
+        hours_to_show: 168
+        type: sensor
+      - entity: sensor.us_coronavirus_current
+        graph: line
+        hours_to_show: 168
+        type: sensor
+    path: covid
+    title: Covid
