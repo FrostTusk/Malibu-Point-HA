@@ -18,7 +18,7 @@ input_select: !include_dir_merge_named includes/entities/input_select
 counter: !include_dir_merge_named includes/entities/counter
 
 glances: !include includes/entities/glances.yaml
-tuya: !include includes/entities/tuya.yaml
+# tuya: !include includes/entities/tuya.yaml
 
 # ---
 # Services
@@ -54,7 +54,7 @@ group: !include includes/groups.yaml
 
 http:
   use_x_forwarded_for: true
-  trusted_proxies: 
+  trusted_proxies:
     - 127.0.0.1
     - ::1
 

@@ -1,4 +1,0 @@
-username: !secret smart_life_username
-password: !secret smart_life_password
-country_code: '32'
-platform: 'smart_life'
