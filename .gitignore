@@ -6,6 +6,7 @@ home-assistant.log
 .cloud/
 deps/
 tts/
+image/
 
 # Configuration
 secrets.yaml
