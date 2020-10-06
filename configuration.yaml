@@ -24,6 +24,7 @@ glances: !include includes/entities/glances.yaml
 # Services
 # ---
 rest_command: !include_dir_merge_named includes/services/rest_command
+notify: !include_dir_merge_list includes/services/notify
 
 # ---
 # Automations
