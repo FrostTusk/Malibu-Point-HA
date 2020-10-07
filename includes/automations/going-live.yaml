@@ -6,4 +6,4 @@
   action:
     - service: notify.frosttusk_twitter
       data:
-        message: 'Now live on #twitch {{state_attr("sensor.frosttusk", "title")}} Tune in at https://twitch.tv/FrostTusk for some more #iot #DIY content!'
+        message: 'Now live on #twitch {{state_attr("sensor.frosttusk", "title")}} Tune in at https://twitch.tv/FrostTusk for some more #iot #DIY content! #stream'
