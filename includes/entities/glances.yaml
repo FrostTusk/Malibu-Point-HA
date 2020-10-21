@@ -3,7 +3,7 @@
   username: !secret glances_ailurus_username
   password: !secret glances_ailurus_password
   name: 'ailurus'
-- host: '192.168.222.164'
+- host: '192.168.222.223'
   username: !secret glances_panthera_username
   password: !secret glances_panthera_password
   name: 'panthera'
