@@ -16,21 +16,29 @@
     - type: load_5m
     - type: load_15m
     - type: throughput_network_in
-      arg: enp9s0
+      arg: eth0
     - type: throughput_network_out
-      arg: enp9s0
+      arg: eth0
+    - type: network_in
+      arg: eth0
+    - type: network_out
+      arg: eth0
     - type: ipv4_address
-      arg: enp9s0
+      arg: eth0
     - type: ipv6_address
-      arg: enp9s0
+      arg: eth0
     - type: throughput_network_in
-      arg: wlp5s0b1
+      arg: wlan0
     - type: throughput_network_out
-      arg: wlp5s0b1
+      arg: wlan0
+    - type: network_in
+      arg: wlan0
+    - type: network_out
+      arg: wlan0
     - type: ipv4_address
-      arg: wlp5s0b1
+      arg: wlan0
     - type: ipv6_address
-      arg: wlp5s0b1
+      arg: wlan0
     - type: processor_use
     - type: last_boot
     - type: processor_temperature
