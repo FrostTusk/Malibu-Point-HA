@@ -54,7 +54,7 @@ class SMAUG(alarm.AlarmControlPanel):
 
     def alarm_disarm(self, code=None):
         """Send disarm command."""
-        if code != PASSCODE and self._hass.states.get("device_tracker.falco").state != "home":
+        if code != PASSCODE and self._hass.states.get("device_tracker.aquila").state != "home":
             return
         self._state = STATE_ALARM_DISARMED
         requests.get(AMNIRANA_DISARM_URL, auth=HTTPBasicAuth(self._AMNIRANA_USERNAME, self._AMNIRANA_PASSWORD))

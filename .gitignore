@@ -16,3 +16,4 @@ SERVICE-ACCOUNT.json
 custom_components/smaug/const.py
 __pycache__/
 TestNotifications
+hacs.zip.*
