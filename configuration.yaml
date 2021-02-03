@@ -1,6 +1,9 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+homeassistant:
+  customize: !include includes/customize.yaml
+
 recorder:
   db_url: !secret database_url
 
@@ -17,6 +20,7 @@ input_boolean: !include_dir_merge_named includes/entities/input_boolean
 input_select: !include_dir_merge_named includes/entities/input_select
 counter: !include_dir_merge_named includes/entities/counter
 
+zone: !include includes/entities/zone.yaml
 glances: !include includes/entities/glances.yaml
 # tuya: !include includes/entities/tuya.yaml
 
