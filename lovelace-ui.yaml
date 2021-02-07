@@ -1,4 +1,4 @@
-# from https://github.com/FrostTusk/Malibu-Point-HA/lovelace-ui.yaml
+# from https://github.com/FrostTusk/Malibu-Point-HA/blob/master/lovelace-ui.yaml
 title: Malibu Point
 views:
   - cards:
@@ -339,20 +339,18 @@ views:
           - entity: sensor.worldwide_coronavirus_confirmed
           - entity: sensor.worldwide_coronavirus_deaths
           - entity: sensor.belgium_coronavirus_confirmed
-          - entity: sensor.belgium_coronavirus_recovered
           - entity: sensor.belgium_coronavirus_deaths
           - entity: sensor.us_coronavirus_confirmed
-          - entity: sensor.us_coronavirus_recovered
           - entity: sensor.us_coronavirus_deaths
         title: Corona Lifetime
         type: entities
       - type: 'custom:mini-graph-card'
         entities:
-          - sensor.belgium_coronavirus_current
-        hours_to_show: 168
+          - sensor.belgium_coronavirus_confirmed
+        hours_to_show: 720
       - type: 'custom:mini-graph-card'
         entities:
-          - sensor.us_coronavirus_current
-        hours_to_show: 168
+          - sensor.us_coronavirus_confirmed
+        hours_to_show: 720
     path: covid
     title: Covid
