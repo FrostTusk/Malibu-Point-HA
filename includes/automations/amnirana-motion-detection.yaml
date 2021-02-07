@@ -4,7 +4,7 @@
       entity_id: counter.amnirana_motion_detector
       above: 0
   action:
-    service: notify.mobile_app_falco
+    service: notify.mobile_app_aquila
     data:
       message: "Motion was Detected"
       title: "Amnirana Motion Detection"
