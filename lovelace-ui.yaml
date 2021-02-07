@@ -1,6 +1,4 @@
 # from https://github.com/FrostTusk/Malibu-Point-HA/lovelace-ui.yaml
-custom_header:
-  compact_mode: true
 title: Malibu Point
 views:
   - cards:
@@ -24,9 +22,9 @@ views:
             type: entities
           - entities:
               - entity: person.mathijs
-              - entity: sensor.falco_steps
-              - entity: sensor.falco_battery_level
-              - entity: sensor.falco_ssid
+              - entity: sensor.aquila_steps_sensor
+              - entity: sensor.aquila_battery_level
+              - entity: sensor.aquila_wifi_connection
             type: glance
             state_color: true
           - entities:
@@ -87,6 +85,24 @@ views:
           - type: horizontal-stack
             cards:
               - type: gauge
+                entity: sensor.lutra_ram_used_percent
+                min: 0
+                max: 100
+                severity:
+                  green: 0
+                  yellow: 50
+                  red: 75
+              - type: gauge
+                entity: sensor.panthera_ram_used_percent
+                min: 0
+                max: 100
+                severity:
+                  green: 0
+                  yellow: 50
+                  red: 75
+          - type: horizontal-stack
+            cards:
+              - type: gauge
                 entity: sensor.ursus_ram_used_percent
                 min: 0
                 max: 100
@@ -105,8 +121,8 @@ views:
           - type: entities
             entities:
               - entity: sensor.last_boot
-              - entity: sensor.ipv4_address_enp9s0
-              - entity: sensor.ipv4_address_wlp5s0b1
+              - entity: sensor.ipv4_address_eth0
+              - entity: sensor.ipv4_address_wlan0
           - type: 'custom:mini-graph-card'
             entities:
               - sensor.load_15m
@@ -117,7 +133,7 @@ views:
   - badges: []
     cards:
       - entities:
-          - entity: device_tracker.falco
+          - entity: person.mathijs
           - entity: zone.home
         hours_to_show: 72
         type: map
@@ -133,7 +149,7 @@ views:
               - entity: sensor.hyaena_containers_active
               - entity: sensor.hyaena_used
               - entity: sensor.hyaena_free
-            title: Hyaena
+            title: hyaena
             type: entities
           - entities:
               - entity: sensor.hyaena_ram_used
@@ -142,8 +158,8 @@ views:
             refresh_interval: 0
             type: history-graph
           - entities:
-              - entity: sensor.hyaena_core_0_temp
-              - entity: sensor.hyaena_core_1_temp
+              - entity: sensor.hyaena_core_0_temperature
+              - entity: sensor.hyaena_core_1_temperature
             hours_to_show: 24
             refresh_interval: 0
             type: history-graph
@@ -156,7 +172,7 @@ views:
               - entity: sensor.ursus_containers_active
               - entity: sensor.ursus_used
               - entity: sensor.ursus_free
-            title: Ursus
+            title: ursus
             type: entities
           - entities:
               - entity: sensor.ursus_ram_used
@@ -165,9 +181,9 @@ views:
             refresh_interval: 0
             type: history-graph
           - entities:
-              - entity: sensor.ursus_core_0_temp
-              - entity: sensor.ursus_core_1_temp
-              - entity: sensor.ursus_core_2_temp
+              - entity: sensor.ursus_core_0_temperature
+              - entity: sensor.ursus_core_1_temperature
+              - entity: sensor.ursus_core_2_temperature
             hours_to_show: 24
             refresh_interval: 0
             type: history-graph
@@ -196,7 +212,7 @@ views:
               - entity: sensor.swap_use_percent
               - entity: sensor.disk_use
               - entity: sensor.disk_free
-            title: Lutra
+            title: procyon
             type: entities
           - entities:
               - entity: sensor.memory_use
@@ -218,7 +234,7 @@ views:
               - entity: sensor.ailurus_containers_active
               - entity: sensor.ailurus_used
               - entity: sensor.ailurus_free
-            title: Ailurus
+            title: ailurus
             type: entities
           - entities:
               - entity: sensor.ailurus_ram_used
@@ -227,7 +243,7 @@ views:
             refresh_interval: 0
             type: history-graph
           - entities:
-              - entity: sensor.ailurus_cpu_thermal_1_temp
+              - entity: sensor.ailurus_cpu_thermal_1_temperature
             hours_to_show: 10000000
             refresh_interval: 0
             type: history-graph
@@ -240,7 +256,7 @@ views:
               - entity: sensor.panthera_containers_active
               - entity: sensor.panthera_used
               - entity: sensor.panthera_free
-            title: Panthera
+            title: panthera
             type: entities
           - entities:
               - entity: sensor.panthera_ram_used
@@ -249,10 +265,32 @@ views:
             refresh_interval: 0
             type: history-graph
           - entities:
-              - entity: sensor.panthera_core_0_temp
-              - entity: sensor.panthera_core_1_temp
-              - entity: sensor.panthera_core_2_temp
-              - entity: sensor.panthera_core_3_temp
+              - entity: sensor.panthera_core_0_temperature
+              - entity: sensor.panthera_core_1_temperature
+              - entity: sensor.panthera_core_2_temperature
+              - entity: sensor.panthera_core_3_temperature
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+        type: vertical-stack
+      - cards:
+          - entities:
+              - entity: sensor.lutra_cpu_used
+              - entity: sensor.lutra_cpu_load
+              - entity: sensor.lutra_swap_used_percent
+              - entity: sensor.lutra_containers_active
+              - entity: sensor.lutra_used
+              - entity: sensor.lutra_free
+            title: lutra
+            type: entities
+          - entities:
+              - entity: sensor.lutra_ram_used
+              - entity: sensor.lutra_ram_free
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+          - entities:
+              - entity: sensor.lutra_core_0_temperature
             hours_to_show: 24
             refresh_interval: 0
             type: history-graph
@@ -263,18 +301,18 @@ views:
             cards:
               - type: 'custom:mini-graph-card'
                 entities:
-                  - sensor.network_throughput_in_enp9s0
+                  - sensor.network_throughput_in_eth0
               - type: 'custom:mini-graph-card'
                 entities:
-                  - sensor.network_throughput_out_enp9s0
+                  - sensor.network_throughput_out_eth0
           - type: horizontal-stack
             cards:
               - type: 'custom:mini-graph-card'
                 entities:
-                  - sensor.network_throughput_in_wlp5s0b1
+                  - sensor.network_throughput_in_wlan0
               - type: 'custom:mini-graph-card'
                 entities:
-                  - sensor.network_throughput_out_wlp5s0b1
+                  - sensor.network_throughput_out_wlan0
           - type: horizontal-stack
             cards:
               - type: 'custom:mini-graph-card'
