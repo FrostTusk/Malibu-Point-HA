@@ -49,7 +49,7 @@ google_assistant:
   report_state: true
   exposed_domains:
     - switch
-  entity_config: !include_dir_merge_named includes/google_assistant
+  # entity_config: !include_dir_merge_named includes/google_assistant
   secure_devices_pin: !secret google_secure_devices_pin
 
 # ---
