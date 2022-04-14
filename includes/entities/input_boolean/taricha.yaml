@@ -1,4 +1,0 @@
-# Tracks whether taricha is turned on or off.
-taricha:
-  name: taricha state
-  initial: false

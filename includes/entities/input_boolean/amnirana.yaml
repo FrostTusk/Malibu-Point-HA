@@ -1,4 +1,0 @@
-# Trakcs whether or not motion detection was triggered on amnirana.
-amnirana_motion_detector:
-  name: amnirana motion detected
-  initial: false

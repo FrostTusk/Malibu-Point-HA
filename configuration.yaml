@@ -4,24 +4,24 @@ default_config:
 homeassistant:
   customize: !include includes/customize.yaml
 
-recorder:
-  db_url: !secret database_url
+  #recorder:
+  #db_url: !secret database_url
 
 # ---
 # Entities
 # ---
 sensor: !include_dir_merge_list includes/entities/sensor
-alarm_control_panel: !include_dir_merge_list includes/entities/alarm_control_panel
-camera: !include_dir_merge_list includes/entities/camera
-media_player: !include_dir_merge_list includes/entities/media_player
-climate: !include_dir_merge_list includes/entities/climate
+#alarm_control_panel: !include_dir_merge_list includes/entities/alarm_control_panel
+#camera: !include_dir_merge_list includes/entities/camera
+#media_player: !include_dir_merge_list includes/entities/media_player
+#climate: !include_dir_merge_list includes/entities/climate
 
 input_boolean: !include_dir_merge_named includes/entities/input_boolean
 input_select: !include_dir_merge_named includes/entities/input_select
 counter: !include_dir_merge_named includes/entities/counter
 
 zone: !include includes/entities/zone.yaml
-glances: !include includes/entities/glances.yaml
+#glances: !include includes/entities/glances.yaml
 # tuya: !include includes/entities/tuya.yaml
 
 # ---
