@@ -3,7 +3,7 @@ default_config:
 
 homeassistant:
   customize: !include includes/customize.yaml
-
+  external_url: "https://malibu-point.hub.industries"
   #recorder:
   #db_url: !secret database_url
 
