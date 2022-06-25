@@ -1,112 +1,112 @@
-- alias: Amnirana triggered Mobile Push Notification
-  trigger:
-  - platform: numeric_state
-    entity_id: counter.amnirana_motion_detector
-    above: 0
-  action:
-    service: notify.mobile_app_aquila
-    data:
-      message: Motion was Detected
-      title: Amnirana Motion Detection
-  id: 429c3d1a12134122a155cfc55c1286df
-- alias: '[GLUE] if amnirana input_boolean = off then reset amnirana counter  (a)'
-  trigger:
-  - platform: state
-    entity_id: input_boolean.amnirana_motion_detector
-    to: 'off'
-  action:
-    service: counter.reset
-    entity_id: counter.amnirana_motion_detector
-  id: 86cbffb159b54eaa85107f800688cb50
-- alias: '[GLUE] if amnirana counter = 0 then amnirana input_boolean = off'
-  trigger:
-  - platform: state
-    entity_id: counter.amnirana_motion_detector
-    to: '0'
-  action:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.amnirana_motion_detector
-  id: b037f3252ee24a4bb658fe9c540b586a
-- alias: Arriving Home
-  trigger:
-  - platform: state
-    entity_id: person.mathijs
-    to: home
-  action:
-  - service: alarm_control_panel.alarm_disarm
-    entity_id: alarm_control_panel.smaug
-  - service: media_player.turn_on
-    entity_id: media_player.taricha
-  - service: input_select.select_option
-    entity_id: input_select.taricha_ui
-    data:
-      option: default
-  - service: input_select.select_option
-    entity_id: input_select.taricha_ui
-    data:
-      option: hyla
-  id: 9453d8cd1b1745c2ac976b74a7a3a141
-- alias: Arriving Home at night
-  trigger:
-  - platform: state
-    entity_id: person.mathijs
-    to: home
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-  action:
-  - service: switch.turn_on
-    entity_id: switch.bedroom_light
-  - service: switch.turn_on
-    entity_id: switch.living_light
-  - service: switch.turn_on
-    entity_id: switch.office_light
-  id: 4c7fc6ad338247e18b347d675972b2d4
-- alias: Arriving Home when it's hot
-  trigger:
-  - platform: state
-    entity_id: person.mathijs
-    to: home
-  condition:
-  - condition: template
-    value_template: '{{ state_attr("weather.malibu_point", "temperature") >= 30 }}'
-  action:
-  - service: switch.turn_on
-    entity_id: switch.office_floor_fan
-  id: 19a0347d9bd64f31ab795acf1d2c362a
-- alias: Went live on twitch
-  trigger:
-  - platform: state
-    entity_id: sensor.frosttusk
-    to: streaming
-  action:
-  - service: notify.frosttusk_twitter
-    data:
-      message: 'Now live on #twitch {{state_attr("sensor.frosttusk", "title")}}! Tune
-        in at https://twitch.tv/FrostTusk for some more #diy #iot content! #twitchstreamers'
-  id: bb127bf0d14549e28b76d8873484c917
-- alias: Leaving Home
-  trigger:
-  - platform: state
-    entity_id: person.mathijs
-    to: not_home
-  action:
-  - service: alarm_control_panel.alarm_arm_away
-    entity_id: alarm_control_panel.smaug
-  - service: switch.turn_off
-    entity_id: switch.bedroom_light
-  - service: switch.turn_off
-    entity_id: switch.living_light
-  - service: switch.turn_off
-    entity_id: switch.office_light
-  - service: switch.turn_off
-    entity_id: switch.office_floor_fan
-  - service: media_player.turn_off
-    entity_id: media_player.hyla
-  - service: media_player.turn_off
-    entity_id: media_player.taricha
-  id: 2aaf878e344141e1acf6678e0551af45
+# - alias: Amnirana triggered Mobile Push Notification
+#   trigger:
+#   - platform: numeric_state
+#     entity_id: counter.amnirana_motion_detector
+#     above: 0
+#   action:
+#     service: notify.mobile_app_aquila
+#     data:
+#       message: Motion was Detected
+#       title: Amnirana Motion Detection
+#   id: 429c3d1a12134122a155cfc55c1286df
+# - alias: '[GLUE] if amnirana input_boolean = off then reset amnirana counter  (a)'
+#   trigger:
+#   - platform: state
+#     entity_id: input_boolean.amnirana_motion_detector
+#     to: 'off'
+#   action:
+#     service: counter.reset
+#     entity_id: counter.amnirana_motion_detector
+#   id: 86cbffb159b54eaa85107f800688cb50
+# - alias: '[GLUE] if amnirana counter = 0 then amnirana input_boolean = off'
+#   trigger:
+#   - platform: state
+#     entity_id: counter.amnirana_motion_detector
+#     to: '0'
+#   action:
+#   - service: input_boolean.turn_off
+#     entity_id: input_boolean.amnirana_motion_detector
+#   id: b037f3252ee24a4bb658fe9c540b586a
+# - alias: Arriving Home
+#   trigger:
+#   - platform: state
+#     entity_id: person.mathijs
+#     to: home
+#   action:
+#   - service: alarm_control_panel.alarm_disarm
+#     entity_id: alarm_control_panel.smaug
+#   - service: media_player.turn_on
+#     entity_id: media_player.taricha
+#   - service: input_select.select_option
+#     entity_id: input_select.taricha_ui
+#     data:
+#       option: default
+#   - service: input_select.select_option
+#     entity_id: input_select.taricha_ui
+#     data:
+#       option: hyla
+#   id: 9453d8cd1b1745c2ac976b74a7a3a141
+# - alias: Arriving Home at night
+#   trigger:
+#   - platform: state
+#     entity_id: person.mathijs
+#     to: home
+#   condition:
+#   - condition: state
+#     entity_id: sun.sun
+#     state: below_horizon
+#   action:
+#   - service: switch.turn_on
+#     entity_id: switch.bedroom_light
+#   - service: switch.turn_on
+#     entity_id: switch.living_light
+#   - service: switch.turn_on
+#     entity_id: switch.office_light
+#   id: 4c7fc6ad338247e18b347d675972b2d4
+# - alias: Arriving Home when it's hot
+#   trigger:
+#   - platform: state
+#     entity_id: person.mathijs
+#     to: home
+#   condition:
+#   - condition: template
+#     value_template: '{{ state_attr("weather.malibu_point", "temperature") >= 30 }}'
+#   action:
+#   - service: switch.turn_on
+#     entity_id: switch.office_floor_fan
+#   id: 19a0347d9bd64f31ab795acf1d2c362a
+# - alias: Went live on twitch
+#   trigger:
+#   - platform: state
+#     entity_id: sensor.frosttusk
+#     to: streaming
+#   action:
+#   - service: notify.frosttusk_twitter
+#     data:
+#       message: 'Now live on #twitch {{state_attr("sensor.frosttusk", "title")}}! Tune
+#         in at https://twitch.tv/FrostTusk for some more #diy #iot content! #twitchstreamers'
+#   id: bb127bf0d14549e28b76d8873484c917
+# - alias: Leaving Home
+#   trigger:
+#   - platform: state
+#     entity_id: person.mathijs
+#     to: not_home
+#   action:
+#   - service: alarm_control_panel.alarm_arm_away
+#     entity_id: alarm_control_panel.smaug
+#   - service: switch.turn_off
+#     entity_id: switch.bedroom_light
+#   - service: switch.turn_off
+#     entity_id: switch.living_light
+#   - service: switch.turn_off
+#     entity_id: switch.office_light
+#   - service: switch.turn_off
+#     entity_id: switch.office_floor_fan
+#   - service: media_player.turn_off
+#     entity_id: media_player.hyla
+#   - service: media_player.turn_off
+#     entity_id: media_player.taricha
+#   id: 2aaf878e344141e1acf6678e0551af45
 - id: '1656199962474'
   alias: Turn of lights when leaving
   description: ''
