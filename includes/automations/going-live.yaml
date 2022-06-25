@@ -1,9 +1,0 @@
-- alias: 'Went live on twitch'
-  trigger:
-    - platform: state
-      entity_id: sensor.frosttusk
-      to: 'streaming'
-  action:
-    - service: notify.frosttusk_twitter
-      data:
-        message: 'Now live on #twitch {{state_attr("sensor.frosttusk", "title")}}! Tune in at https://twitch.tv/FrostTusk for some more #diy #iot content! #twitchstreamers'
