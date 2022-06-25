@@ -86,39 +86,36 @@
       message: 'Now live on #twitch {{state_attr("sensor.frosttusk", "title")}}! Tune
         in at https://twitch.tv/FrostTusk for some more #diy #iot content! #twitchstreamers'
   id: bb127bf0d14549e28b76d8873484c917
-- alias: Leaving Home
+- id: 2aaf878e344141e1acf6678e0551af45
+  alias: Leaving Home
   trigger:
   - platform: state
     entity_id: person.mathijs
     to: not_home
   action:
-  - service: alarm_control_panel.alarm_arm_away
-    entity_id: alarm_control_panel.smaug
   - service: switch.turn_off
     entity_id: switch.bedroom_light
   - service: switch.turn_off
-    entity_id: switch.living_light
+    data: {}
+    target:
+      device_id: aab3d01b268851dc34c32c8a615d4960
   - service: switch.turn_off
-    entity_id: switch.office_light
-  - service: switch.turn_off
-    entity_id: switch.office_floor_fan
+    data: {}
+    target:
+      device_id: 0cd71aab4097cbba429d8e6ce3669c05
   - service: media_player.turn_off
-    entity_id: media_player.hyla
+    data: {}
+    target:
+      device_id: 3718ded81c31df2e8aeb964cbd7203df
   - service: media_player.turn_off
-    entity_id: media_player.taricha
-  id: 2aaf878e344141e1acf6678e0551af45
-- id: '1656199962474'
-  alias: Turn of lights when leaving
-  description: ''
-  trigger:
-  - platform: zone
-    entity_id: person.mathijs
-    zone: zone.home
-    event: leave
-  condition: []
-  action:
+    data: {}
+    target:
+      device_id: 3db373f99e23c1e16e78d23257583e1f
+  - service: media_player.turn_off
+    data: {}
+    target:
+      device_id: e65ca24772253758d2b0c3ee8df46ec1
   - type: turn_off
-    device_id: 0cd71aab4097cbba429d8e6ce3669c05
-    entity_id: switch.mood_wire_light
-    domain: switch
-  mode: single
+    device_id: d32241669db03c603baa5a527aac6c23
+    entity_id: light.reading_light
+    domain: light
