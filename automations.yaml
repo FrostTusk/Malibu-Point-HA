@@ -94,3 +94,33 @@
     device_id: d32241669db03c603baa5a527aac6c23
     entity_id: light.reading_light
     domain: light
+- id: '1656201107250'
+  alias: Sleepy Time
+  description: ''
+  trigger: []
+  condition: []
+  action:
+  - type: turn_off
+    device_id: aab3d01b268851dc34c32c8a615d4960
+    entity_id: switch.desk_light
+    domain: switch
+  - type: turn_off
+    device_id: f452c94d32c0e74ff9cf45a8fbd96e77
+    entity_id: switch.bedroom_light
+    domain: switch
+  - type: turn_off
+    device_id: 0cd71aab4097cbba429d8e6ce3669c05
+    entity_id: switch.mood_wire_light
+    domain: switch
+  - type: turn_off
+    device_id: d32241669db03c603baa5a527aac6c23
+    entity_id: light.reading_light
+    domain: light
+  - service: media_player.turn_off
+    data: {}
+    target:
+      device_id:
+      - e65ca24772253758d2b0c3ee8df46ec1
+      - 3db373f99e23c1e16e78d23257583e1f
+      - 3718ded81c31df2e8aeb964cbd7203df
+  mode: single
