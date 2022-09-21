@@ -1,13 +1,14 @@
-# - platform: twitch
-#   client_id: !secret twitch_client_id
-#   channels:
-#     - FrostTusk
+- platform: twitch
+  client_id: !secret twitch_client_id
+  channels:
+    - FrostTusk
+    - Hasanabi
 
-# - platform: template
-#   sensors:
-#     frosttusk_followers:
-#       friendly_name: "FrostTusk followers"
-#       value_template: "{{ state_attr('sensor.frosttusk', 'followers') }}"
-#     frosttusk_views:
-#       friendly_name: "FrostTusk views"
-#       value_template: "{{ state_attr('sensor.frosttusk', 'views') }}"
+- platform: template
+  sensors:
+    frosttusk_followers:
+      friendly_name: "FrostTusk followers"
+      value_template: "{{ state_attr('sensor.frosttusk', 'followers') }}"
+    frosttusk_views:
+      friendly_name: "FrostTusk views"
+      value_template: "{{ state_attr('sensor.frosttusk', 'views') }}"
